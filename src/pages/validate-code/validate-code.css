@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+#validate-code-container {
+    margin: 40px auto;
+    width: 40%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    border-top: 10px solid #3a4eff;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.089);
+    padding-bottom: 30px;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+#validate-code-container h2 {
+    font-family: "Roboto";
+    font-weight: 300;
+    margin: 10px auto 20px auto;
+}
+
+#validate-code-container span {
+    margin: 0;
+    width: 95%;
+    font-size: 14px;
+    color: rgb(255, 62, 62);
+    height: 10px;
+    transition: all 0.2s ease;
+    margin-left: 5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#validate-code-input {
+    margin: 10px auto 0px auto;
+    display: flex;
+    position: relative;
+    width: 90%;
+    height: 50px;
+    align-items: center;
+}
+
+#validate-code-input input:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.555);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.192);
+}
+
+#validate-code-input input {
+    width: 100%;
+    height: 90%;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    padding-left: 10px;
+    font-family: "Roboto";
+    font-size: 20px;
+    transition: all 0.2s ease;
+    font-weight: 300;
+}
+
+#validate-code-input button:hover {
+    background-color: #5e6eff;
+}
+
+#validate-code-input button {
+    position: absolute;
+    width: 20%;
+    height: 90%;
+    right: 0;
+    border: none;
+    background-color: #3a4eff;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#resend-code-btn:hover {
+    background-color: #5e6eff;
+}
+
+#resend-code-btn {
+    margin-top: 40px;
+    width: 25% ;
+    font-family: "Roboto";
+    height: 40px;
+    border: none;
+    background-color: #3a4eff;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    border-radius: 5px;
+    margin-left: 5%;
+}
+
+@media (max-width: 900px) {
+    #main-container {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    #this-home-img {
+        border: none;
+        width: 0px;
+    }
+
+    #this-home-container {
+        width: 100%;
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    #validate-code-container {
+        width: 90%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #validate-code-container h2 {
+        font-family: "Roboto";
+        font-weight: 300;
+        font-size: 18px;
+        margin-top: 10px !important;
+        margin: 0;
+        text-align: center;
+    }
+
+    #mobile-heading {
+        width: auto;
+        margin-bottom: 10px;
+        color: white;
+        font-family: "Roboto";
+        font-weight: 300;
+        font-size: 25px;
+    }
+
+    #this-home-header h2 {
+        font-size: 0px;
+    }
+
+    #mobile-icon {
+        position: absolute;
+        width: 300px !important;
+        bottom: 0;
+    }
+
+    #resend-code-btn {
+        width: 40% ;
+    }
+
+    #validate-code-input input {
+        font-size: 19px;
+    }
+}

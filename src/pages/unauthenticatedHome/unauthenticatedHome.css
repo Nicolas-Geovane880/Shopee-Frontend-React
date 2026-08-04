@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#this-home-header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding-left: 10px;
+    width: 100%;
+    height: 10vh;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.144);
+}
+
+#this-home-header img {
+    width: 120px;
+    border-radius: 10px;
+}
+
+#this-home-img {
+    height: 85%;
+    align-self: center;
+    border: 1px solid rgba(255, 255, 255, 0.479);
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.253);
+}
+
+#this-home-header h2 {
+    font-family: "Roboto";
+    font-size: 30px;
+    color: #1b1b1b;
+    font-weight: 300;
+    border-left: 3px solid #3a4eff;
+    padding-left: 5px;
+}
+
+#this-home-main-container {
+    margin: auto;
+    width: 100%;
+    height: 90vh;
+    background-image: linear-gradient(to right bottom, #1123c7, #1e65ff);
+    display: flex;
+    justify-content: center;
+}
+
+#this-home-container {
+    width: 35%;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#redirect-btns-container {
+    width: 60%;
+    height: 40%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.226);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#or-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#or-container hr {
+    width: 30% !important;
+    border: none;
+    border-top: 1px solid #ccc; /* cor e espessura da linha */
+    margin: 10px 0;
+}
+
+#mobile-heading {
+    width: 0px;
+}
+
+#mobile-icon {
+    width: 0px !important;
+}
+
+@media (max-width: 900px) {
+    #main-container {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+    }
+
+    #this-home-img {
+        border: none;
+        width: 0px;
+    }
+
+    #this-home-container {
+        width: 100%;
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    #redirect-btns-container {
+        width: 90%;
+        height: 40%;
+    }
+
+    #mobile-heading {
+        width: auto;
+        margin-bottom: 10px;
+        color: white;
+        font-family: "Roboto";
+        font-weight: 300;
+        font-size: 25px;
+    }
+
+    #this-home-header h2 {
+        font-size: 0px;
+    }
+
+    #mobile-icon {
+        position: absolute;
+        width: 300px !important;
+        bottom: 0;
+    }
+}
+
+
+

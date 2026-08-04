@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.orange-big-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 40px;
+    padding: 0;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: #3a4eff;
+    border-radius: 5px;
+}
+
+.orange-big-button:hover {
+    background-color: #5e6eff;
+}
+
+input.field-has-error {
+    background-color: rgba(245, 127, 127, 0.048) !important;
+    border: 1px solid rgba(255, 0, 0, 0.377) !important;
+    box-shadow: 1px 1px 10px rgba(255, 0, 0, 0.171) !important;
+}
+
+.button-spinner {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+
+  border: 3px solid rgba(255, 255, 255, 0.4) !important;
+  border-top-color: white !important;
+  border-radius: 50% !important;
+
+  display: inline-block !important;
+  box-sizing: border-box !important;
+
+  animation: button-spin 0.7s linear infinite;
+}
+
+@keyframes button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#overflow {
+  background-color: rgba(0, 0, 0, 0.37);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1004;
+}
+
+#confirm-ctn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30%;
+  width: 550px;
+  height: 210px;
+  z-index: 1005;
+  font-family: "Roboto";
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.103);
+  transition: all 0.3s ease;
+}
+
+#confirm-ctn h2, #confirm-ctn h3 {
+  font-weight: 400;
+}
+
+#confirm-btn-ctn {
+  display: flex;
+  width: 70%;
+  height: 40px;
+  gap: 10px;
+}
+
+#confirm-btn-ctn button {
+  width: 50%;
+  background-color: #3a4eff;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-family: "Roboto";
+  font-weight: 300;
+  border-radius: 5px;
+}
+
+#confirm-btn-ctn button:nth-child(2) {
+  background-color: rgb(255, 44, 72) !important;
+}
+
+#confirm-btn-ctn button:hover {
+  background-color: #5e6eff;
+}
+
+#confirm-btn-ctn button:nth-child(2):hover {
+    background-color: rgb(253, 82, 104) !important;
+}
+
+/* input:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.555);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.192);
+} */
