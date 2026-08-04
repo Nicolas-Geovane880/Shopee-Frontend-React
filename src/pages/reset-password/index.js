@@ -79,7 +79,7 @@ class ResetPassword extends React.Component {
             return (
                 <div>
                     <header id="this-home-header">
-                        <img src={minimalistIconUltra}></img>
+                        <img src={minimalistIconUltra} alt=""></img>
                         
                         <h2>Alterar senha</h2>
                     </header>
@@ -94,9 +94,9 @@ class ResetPassword extends React.Component {
 
         return (
             <div id="main-container">
-                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon}></img>{this.state.errorMessage}</div>
+                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
                 <header id="this-home-header">
-                    <img src={minimalistIconUltra}></img>
+                    <img src={minimalistIconUltra} alt=""></img>
                     
                     <h2>Alterar senha</h2>
                 </header>
@@ -115,7 +115,7 @@ class ResetPassword extends React.Component {
                                 className={this.state.newPasswordErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                             </input>
 
-                            <img src={this.state.showPasswordSrc} onClick={this.showPassword}></img>
+                            <img src={this.state.showPasswordSrc} onClick={this.showPassword} alt=""></img>
                         </div>
 
                         <span>{this.state.confirmNewPasswordErrorMessage}</span>

@@ -78,7 +78,7 @@ class AddOrder extends React.Component {
 
     async saveOrder () {
         try {
-            const data = await sendSaveOrder (this.state.listToSave, Number (this.state.revenue), this.state.soldDate, this.state.idSeller, localStorage.getItem ("accessToken"));
+            await sendSaveOrder (this.state.listToSave, Number (this.state.revenue), this.state.soldDate, this.state.idSeller, localStorage.getItem ("accessToken"));
 
             this.setState ({sku: "", quantity: 0, revenue: 0, idSeller: "", soldDate: "", listToSave: []});
 

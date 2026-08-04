@@ -71,10 +71,10 @@ class Login extends React.Component {
     render () {
         return (
             <div id="main-container">
-                <div id="login-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon}></img>{this.state.errorMessage}</div>
+                <div id="login-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
 
                 <header id="login-header">
-                    <img src={minimalistIconUltra}></img>
+                    <img src={minimalistIconUltra} alt=""></img>
                     
                     <h2 id="teste">Entrar</h2>
                 </header>
@@ -82,7 +82,7 @@ class Login extends React.Component {
 
                 <div id="login-main-container">
                     
-                    <img id="login-img" src={teste}></img>
+                    <img id="login-img" src={teste} alt=""></img>
 
                     <div id="login-container">
                         <h2 id="mobile-heading">Entrar na conta</h2>
@@ -107,7 +107,7 @@ class Login extends React.Component {
                                     onChange={(e) => {this.setState ({password: e.target.value, hiddenErrorMessage: "hidden"})}}
                                     className={this.state.passwordErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                                 </input>
-                                <img src={this.state.showPasswordSrc} onClick={this.showPassword}></img>
+                                <img src={this.state.showPasswordSrc} onClick={this.showPassword} alt=""></img>
                             </div>
 
                             <a href="/forgot-password" target="blank" id="forgot-password-link">Esqueci minha senha</a>

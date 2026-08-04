@@ -60,10 +60,10 @@ class Signup extends React.Component {
     render () {
         return (
             <div id="main-container">
-                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon}></img>{this.state.errorMessage}</div>
+                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
 
                 <header id="signup-header">
-                    <img src={minimalistIconUltra}></img>
+                    <img src={minimalistIconUltra} alt=""></img>
                     
                     <h2>Cadastro de usuário</h2>
                 </header>
@@ -71,7 +71,7 @@ class Signup extends React.Component {
 
                 <div id="signup-main-container">
                     
-                    <img id="signup-img" src={teste}></img>
+                    <img id="signup-img" src={teste} alt=""></img>
 
                     <div id="signup-container">
 
@@ -107,7 +107,7 @@ class Signup extends React.Component {
                                     onChange={(e) => {this.setState({password: e.target.value, hiddenErrorMessage: "hidden"})}}
                                     className={this.state.passwordErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                                 </input>
-                                <img src={this.state.showPasswordSrc} onClick={this.showPassword}></img>
+                                <img src={this.state.showPasswordSrc} onClick={this.showPassword} alt=""></img>
                             </div>
 
                             <span>{this.state.confirmPasswordErrorMessage}</span>

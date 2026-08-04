@@ -1,12 +1,7 @@
 import React from "react";
 import { fetchUserInfos, sendRefreshToken } from "./fetch";
 import "./home.css"
-import errorIcon from "../../assets/images/close.png"
-import teste from "../../assets/images/teste.png";
 import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
-import view from "../../assets/images/view.png";
-import hide from "../../assets/images/hide.png";
-import layoutIcon from "../../assets/images/layout-icon-4.png";
 
 class Home extends React.Component {
     
@@ -68,7 +63,7 @@ class Home extends React.Component {
         return (
             <div id="home-main-container">
                 <header id="home-header">
-                    <img src={minimalistIconUltra}></img>
+                    <img src={minimalistIconUltra} alt=""></img>
 
                     <h2>Shopee Supplier Calculator</h2>
 

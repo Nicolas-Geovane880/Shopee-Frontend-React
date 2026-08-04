@@ -75,7 +75,7 @@ class ListDashboard extends React.Component {
         const accessToken = localStorage.getItem ("accessToken");
 
         try {
-            const data = await sendSetOrderAsPaid (accessToken, idSeller);
+            await sendSetOrderAsPaid (accessToken, idSeller);
         } catch (error) {
             this.handleError ("Erro ao marcar pedido como pago");
         }

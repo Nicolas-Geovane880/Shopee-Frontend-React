@@ -1,12 +1,9 @@
 import React from "react";
-import errorIcon from "../../assets/images/close.png"
 import "./unauthenticatedHome.css"
 import OrangeBigButton from "../../components/OrangeBigButton";
 import "../../global.css";
-import calculatorBlueIcon from "../../assets/images/calculator-big-icon.png";
 import teste from "../../assets/images/teste.png";
 import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
-import mobileIcon from "../../assets/images/mobile-icon.png";
 
 class UnauthenticatedHome extends React.Component {
 
@@ -20,14 +17,14 @@ class UnauthenticatedHome extends React.Component {
         return (
             <div id="main-container">
                 <header id="this-home-header">
-                    <img src={minimalistIconUltra}></img>
+                    <img src={minimalistIconUltra} alt=""></img>
                     
                     <h2>Entrar ou cadastrar</h2>
                 </header>
 
                 <div id="this-home-main-container">
                     
-                    <img id="this-home-img" src={teste}></img>
+                    <img id="this-home-img" src={teste} alt=""></img>
 
                     <div id="this-home-container">
 

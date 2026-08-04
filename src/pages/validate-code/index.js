@@ -91,9 +91,9 @@ class ValidateCode extends React.Component {
     render () {
         return (
             <div id="main-container">
-                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon}></img>{this.state.errorMessage}</div>
+                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
                 <header id="this-home-header">
-                    <img src={minimalistIconUltra}></img>
+                    <img src={minimalistIconUltra} alt=""></img>
                     
                     <h2>Validar código</h2>
                 </header>
