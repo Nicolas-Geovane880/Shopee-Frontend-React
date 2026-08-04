@@ -2,7 +2,7 @@ export const signup = async (component) => {
     component.setState ({loading: true});
     
     try {
-        const response = await fetch("http://localhost:3001/auth/signup", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const signup = async (component) => {
 }
 
 export const existsByEmail = async (email) => {
-    const response = await fetch ("http://localhost:3001/users/validate-email", {
+    const response = await fetch (`${process.env.REACT_APP_API_URL}/users/validate-email`, {
         method: "POST",
         headers: {
             "Content-type": "application/json",
