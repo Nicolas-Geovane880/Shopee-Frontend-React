@@ -225,7 +225,7 @@
     box-shadow: 0px 0px 10px #fd6721ec;
 }
 
-#opts-cards div span {
+#opts-cards .arrow {
     width: 0px;
     height: 80%;
     border-radius: 5px;
@@ -241,7 +241,7 @@
     transition: all 0.4s ease;
 }
 
-#opts-cards div:hover span {
+#opts-cards div:hover .arrow {
     width: 70px;
     opacity: 1;
 }
@@ -252,7 +252,7 @@
     cursor: default;
 }
 
-#card-one.disabled-auth:hover span {
+#card-one.disabled-auth:hover .arrow {
     width: 0px;
     opacity: 0;
 }
@@ -273,10 +273,16 @@
     animation: appear-card 1s ease 0.6s 1 normal forwards running;
 }
 
-#auth-needed {
+#auth-needed.logged {
+    opacity: 0;
+    width: 0;
+}
+
+#auth-needed.not-logged {
+    padding-bottom: 5px !important;
     width: fit-content !important;
     padding: 10px !important;
-    height: 30px !important;
+    height: 40px !important;
     background-color: #ff641d !important;
     color: white !important;
     position: absolute;

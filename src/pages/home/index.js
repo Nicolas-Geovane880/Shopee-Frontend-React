@@ -112,23 +112,23 @@ class Home extends React.Component {
 
                     <h3>➜ Qual opção deseja?</h3>
 
-                    <div id="opts-cards"
-                         onClick={this.state.isFromLogin ? () => window.location.href = "/list-dashboard" : () => {}}>
+                    <div id="opts-cards">
                         <div id="card-one"
-                             className={this.state.isFromLogin ? "" : "disabled-auth"}>
-                            <span>➜</span>
-                            <span id="auth-needed" className={this.state.isFromLogin ? "" : "not-logged"}>Necessário autenticação</span>
+                             className={this.state.isFromLogin ? "" : "disabled-auth"}
+                             onClick={this.state.isFromLogin ? () => window.location.href = "/list-dashboard" : () => {}}>
+                            <span className="arrow">➜</span>
+                            <span id="auth-needed" className={this.state.isFromLogin ? "logged" : "not-logged"}>Necessário autenticação</span>
                             Listar pedidos manualmente e ver suas métricas
                             </div>
                         <div id="card-two"
                              onClick={() => document.getElementById ("main-container-label")
                                 .scrollIntoView ({behavior: "smooth"})
                              }>
-                            <span>➜</span>
+                            <span className="arrow">➜</span>
                             Gerar tabelas a partir de etiquetas de pedidos
-                            </div>
+                        </div>
                         <div id="card-three">
-                            <span>➜</span>
+                            <span className="arrow">➜</span>
                             Gerar tabelas com informações revelantes a partir de tabela de pedidos
                             </div>
                     </div>
