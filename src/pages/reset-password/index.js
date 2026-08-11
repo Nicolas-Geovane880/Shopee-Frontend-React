@@ -19,7 +19,7 @@ class ResetPassword extends React.Component {
             newPasswordErrorMessage: "",
             confirmNewPasswordErrorMessage: "",
 
-            isRequestSuccess: true,
+            isRequestSuccess: false,
 
             errorMessage: "",
             hiddenErrorMessage: "hidden",
