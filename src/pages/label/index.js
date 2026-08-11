@@ -1,6 +1,5 @@
 import React from "react";
 import "./label.css"
-import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
 import uploadIcon from "../../assets/images/upload.png";
 import tableIcon from "../../assets/images/table.png";
 import labelIcon from "../../assets/images/label.png";

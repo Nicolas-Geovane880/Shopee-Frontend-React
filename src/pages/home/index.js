@@ -2,7 +2,6 @@ import React from "react";
 import { fetchUserInfos, sendRefreshToken } from "./fetch";
 import "./home.css"
 import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
-import cardOne from "../../assets/images/card1.png";
 import LabelDrop from "../label";
 
 class Home extends React.Component {
