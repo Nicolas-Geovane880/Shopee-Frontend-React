@@ -93,6 +93,26 @@
     width: 0px !important;
 }
 
+#go-in-unauth {
+    width: 21%;
+    height: 50px;
+    position: absolute;
+    top: 65%;
+    background-color: #1123c700;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+#go-in-unauth:hover {
+    background-color: rgb(255, 255, 255);
+    color: #1123c7;
+}
+
 @media (max-width: 900px) {
     #main-container {
         display: flex;

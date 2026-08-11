@@ -41,8 +41,10 @@ class UnauthenticatedHome extends React.Component {
 
                             <OrangeBigButton text="ENTRAR" act={() => window.location.href = "/login"}/>
                         </div>
+
+                        <button id="go-in-unauth" onClick={() => window.location.href = "/?is_from_login=false"}>Usar recursos sem autenticação</button>
+
                     </div>
-                    {/* <img id="mobile-icon" src={mobileIcon}></img> */}
                 </div>
             </div>
         )

@@ -87,7 +87,7 @@ class Login extends React.Component {
                     <div id="login-container">
                         <h2 id="mobile-heading">Entrar na conta</h2>
                         
-                        <button id="back-btn" onClick={() => window.location.href = "/"}>VOLTAR</button>
+                        <button id="back-btn" onClick={() => window.location.href = "/unauthenticated-home"}>VOLTAR</button>
                         
                         <form id="login-form" onSubmit={this.login}>
 

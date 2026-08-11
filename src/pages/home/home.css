@@ -1,17 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+#home-main-container {
+    width: 100%;
+    height: 200vh;
+    background-image: linear-gradient(to right bottom, rgb(8, 8, 8), rgb(14, 14, 14));
+}
 
 #home-header {
+    position: fixed;
+    z-index: 1000;
+    background-color: black;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.384);
     align-items: center;
     justify-content: flex-start;
     font-family: "Roboto";
     gap: 10px;
     padding-left: 10px;
-    width: 100vw;
+    width: 100%;
     height: 10vh;
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.144);
 }
 
 #home-header img {
@@ -20,8 +29,11 @@
 } 
 
 #home-header h2 {
+    font-family: "JetBrain Mono", monospace;
     font-size: 30px;
+    color: #ffffffec;
     font-weight: 300;
+    padding-left: 5px;
 }
 
 #user-info {
@@ -47,21 +59,21 @@
     border: none;
     width: 120px;
     height: 50px;
-    background-color: white;
-    border: 1px solid #3a4eff;
-    font-family: "Roboto";
+    background-color: transparent;
+    border: 2px solid #ff641d;
+    font-family: "JetBrain Mono", monospace;
     font-weight: 900;
     font-size: 14px;
     border-radius: 5px;
-    color: #3a4eff;
+    color: white;
     position: absolute;
     right: 2%;
     transition: all 0.3s ease;
 }
 
 #sign-out-btn:hover {
-    background-color: #3a4eff;
-    border-radius: 10px;
+    background-color: #ff641d;
+    /* border-radius: 10px; */
     color: white;
 }
 
@@ -73,6 +85,7 @@
     height: fit-content;
     background-color: #ffffff;
     gap: 10px;
+    position: relative;
 }
 
 #pages-container-heading {
@@ -109,13 +122,185 @@
     transition: all 0.1s ease;
 }
 
-#manuable-list:hover {
-    /* background-color:    rgba(197, 197, 197, 0.11); */
+#manuable-list.disabled {
+    color: gray;
+}
+
+#manuable-list.disabled:hover {
+    border: 2px solid rgba(0, 0, 0, 0);
+    text-shadow: none;
+}
+
+#manuable-list:hover, #table-from-label:hover {
     border: 2px solid #3a4eff;
     border-radius: 5px;
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.479);
 }
 
+#auth-required {
+    position: absolute;
+    left: -25%;
+    top: 30%;
+    width: 200px;
+    background-color: #3a4eff;
+    color: white;
+    font-family: "Roboto";
+    font-weight: 400;
+    height: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#first-section {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-top: 20px;
+    background-color: rgba(27, 27, 27, 0.308);
+    border-radius: 10px;
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.062);
+    margin: auto;
+    width: 70vw;
+    height: 60vh;
+    top: 200px;
+    left: 30px;
+    box-shadow: 0px 0px 10px rgba(39, 39, 39, 0.61);
+}
+
+#first-section h1 {
+    color: rgba(255, 255, 255, 0.897);
+    font-family: "Montserrat", monospace;
+    font-weight: 500;
+    position: relative;
+    font-size: 40px;
+}
+#first-section p {
+    margin-top: 50px;
+    color: rgba(255, 255, 255, 0.897);
+    font-family: "Montserrat", monospace;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+#first-section h3 {
+     margin-top: 50px;
+    color: rgba(255, 255, 255, 0.801);
+    font-family: "Montserrat", monospace;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#opts-cards {
+    margin-top: 20px;
+    width: 62%;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#opts-cards div {
+    width: 90%;
+    height: 30%;
+    border-radius: 5px;
+    opacity: 0;
+    font-family: "Montserrat", monospace;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 20px;
+    background-image: linear-gradient(to right, #ff641d, #fc7e44);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#opts-cards div:hover {
+    box-shadow: 0px 0px 10px #fd6721ec;
+}
+
+#opts-cards div span {
+    width: 0px;
+    height: 80%;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.925);
+    margin-right: 10px;
+    opacity: 0;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+    font-size: 28px;
+    transition: all 0.4s ease;
+}
+
+#opts-cards div:hover span {
+    width: 70px;
+    opacity: 1;
+}
+
+#card-one.disabled-auth {
+    background-image: none;
+    background-color: gray;
+    cursor: default;
+}
+
+#card-one.disabled-auth:hover span {
+    width: 0px;
+    opacity: 0;
+}
+
+#card-one.disabled-auth:hover {
+    box-shadow: none;
+}
+
+#card-one {
+    animation: appear-card 1s ease 0s 1 normal forwards running;
+}
+
+#card-two {
+    animation: appear-card 1s ease 0.3s 1 normal forwards running;
+}
+
+#card-three {
+    animation: appear-card 1s ease 0.6s 1 normal forwards running;
+}
+
+#auth-needed {
+    width: fit-content !important;
+    padding: 10px !important;
+    height: 30px !important;
+    background-color: #ff641d !important;
+    color: white !important;
+    position: absolute;
+    opacity: 1 !important;
+    font-size: 18px !important;
+    top: -10px;
+    right: -230px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+
+@keyframes appear-card {
+    0% {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 @media (max-width: 900px) {
     #home-header h2 {
@@ -129,10 +314,10 @@
     }
 
     #sign-out-btn {
-        border: none;
+        border: 2px solid #ff641d;
         width: 100px;
         height: 50px;
-        background-color: #3a4eff;
+        background-color: transparent;
         font-family: "Roboto";
         font-weight: 900;
         font-size: 14px;

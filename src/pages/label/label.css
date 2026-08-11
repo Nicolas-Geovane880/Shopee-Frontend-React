@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+#main-container-label {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100vh;
+    padding-top: 120px;
+    margin: 0 auto;
+}
+
+#files-area {
+    width: 90%;
+    height: 100%;
+    background-color: rgba(235, 235, 235, 0);
+    border: 3px dashed rgba(170, 170, 170, 0.61);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+#file-with-span {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#files-area img {
+    width: 60px;
+    opacity: 80%;
+}
+
+#files-area.over-area {
+    background-color: #ff510038;
+    border-color: #ff510060;
+}
+
+#files-area.filled {
+    background-color: #ff510059;
+    border-color: #ff5100cb;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+}
+
+#files-area.file-error {
+    background-color: rgba(255, 99, 99, 0.226);
+    border-color: rgba(245, 41, 41, 0.507);
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+}
+
+#file-area-ctn.aos-init aos-animate {
+    margin: 0;
+}
+
+#file-area-ctn {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 50vh;
+    border-radius: 10px;
+    animation: 1s ease 0s 1 normal forwards running appear;
+    margin: 0;
+    margin: auto;
+    position: relative;
+}
+
+/* @keyframes appear {
+    0% {
+        opacity: 0;
+        margin: 80px auto;
+    }
+    100% {
+
+        opacity: 1;
+        margin: 60px auto;
+    }
+} */
+
+
+
+#file-with-span span {
+    width: 100%;
+    height: 25px;
+    padding-left: 5%;
+    font-family: "Roboto";
+    color: red;
+    font-size: 15px;
+}
+
+#file-area-ctn button {
+    width: fit-content;
+    padding: 5px;
+    height: 10%;
+    background-image: linear-gradient(to right, #ff641d, #fc7e44);
+    border: none;
+    color: white;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+#arrow-btn {
+    width: 0;
+    height: 80%;
+    color: transparent;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 900;
+    transition: all 0.3s ease;
+    margin-left: 0;
+    opacity: 0;
+    padding-bottom: 2px;
+}
+
+#file-area-ctn button.loading {
+    justify-content: center !important;
+    width: 200px !important;
+    animation: text-shining 1.2s ease infinite;
+    padding-bottom: 20px;
+}
+
+@keyframes text-shining {
+    0% {
+        color: rgba(255, 255, 255, 0.637);
+    }
+    50% {
+        color: rgba(255, 255, 255, 0.904);
+    }
+    100% {
+        color: rgba(255, 255, 255, 0.637);
+    }
+}
+
+#file-area-ctn button.loading:hover #arrow-btn {
+    width: 0;
+    width: 0px;
+    margin-right: 0px;
+    opacity: 0;
+}
+
+#file-area-ctn button:hover #arrow-btn {
+    width: 30px;
+    margin-right: 10px;
+    color: #000000;
+    opacity: 1;
+}
+
+#file-area-ctn button:hover {
+    box-shadow: 0px 0px 10px #fd6721ec;
+}
+
+#progress-bar.progress-go {
+    position: absolute;
+    height: 5px;
+    width: 20%;
+    left: -20%;
+    background-color: white;
+    bottom: 5px;
+
+    animation: load 0.6s linear infinite;
+}
+
+@keyframes load {
+    0% {
+        left: -20%;
+        width: 2%;
+    }
+
+    50% {
+        width: 45%;
+    }
+
+    100% {
+        left: 100%;
+        width: 10%;
+    }
+}
+
+#file-with-heading {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+#file-with-heading h1 {
+    margin: 0;
+    font-family: "JetBrain Mono", monospace;
+    font-weight: 300;
+    font-size: 21px;
+    padding: 10px 5px;
+    color: white;
+}
+
+#cards-info div {
+    width: 32%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.164);
+    background-color: rgba(31, 31, 31, 0.144);
+    padding-bottom: 20px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+#cards-info div:hover {
+    height: 100%;
+    border-top-color: white;
+}
+
+#cards-info div:hover img {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px white;
+}
+
+#cards-info div img {
+    width: 30%;
+    padding: 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background-color: rgb(255, 255, 255);
+}
+
+#cards-info div h2 {
+    color: white;
+    font-family: "JetBrain Mono", monospace;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 400;
+}
+
+#cards-info {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    height: 200px;
+    margin: auto;
+}
+
+#open-file-hidden {
+    width: 0px;
+    opacity: 0;
+}
+
+#open-file-label {
+    width: 18%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "JetBrain Mono", monospace;
+    position: absolute;
+    color: white;
+    background-image: linear-gradient(to right, #ff641d, #fc7e44);
+    right: 0;
+    top: 20%;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#open-file-label:hover {
+    box-shadow: 0px 0px 10px #fd6721ec;
+    transform: translateY(-3px);
+}
+
+#remove-files {
+    width: 18%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "JetBrain Mono", monospace;
+    position: absolute;
+    color: white;
+    background-image: linear-gradient(to right, #ff641d, #fc7e44);
+    right: 0;
+    top: 30%;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#remove-files:hover {
+    box-shadow: 0px 0px 10px #fd6721ec;
+    transform: translateY(-3px);
+}
+
+
+

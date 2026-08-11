@@ -9,6 +9,7 @@ import ForgotPassword from "./pages/forgot-password";
 import ResetPassword from "./pages/reset-password";
 import ValidateCode from "./pages/validate-code";
 import ListDashboard from "./pages/list-dashboard";
+import LabelDrop from "./pages/label";
 
 const DefaultRouter = () => {
     return (
@@ -22,6 +23,7 @@ const DefaultRouter = () => {
                 <Route path="/reset-password" element={<ResetPassword />}></Route>
                 <Route path="/validate-code" element={<ValidateCode />}></Route>
                 <Route path="/list-dashboard" element={<ListDashboard />}></Route>
+                <Route path="/label" element={<LabelDrop />}></Route>
             </Routes>
         </BrowserRouter>
     )

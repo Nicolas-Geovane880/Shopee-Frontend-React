@@ -2,6 +2,8 @@ import React from "react";
 import { fetchUserInfos, sendRefreshToken } from "./fetch";
 import "./home.css"
 import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
+import cardOne from "../../assets/images/card1.png";
+import LabelDrop from "../label";
 
 class Home extends React.Component {
     
@@ -12,11 +14,20 @@ class Home extends React.Component {
             user: {},
 
             errorMessage: "",
+
+            isFromLogin: false,
         }
     }
 
     componentDidMount () {
-        this.isAuthenticated ();
+        const params = new URLSearchParams (window.location.search);
+        const isFromLogin = params.get ("is_from_login");
+
+        this.setState ({isFromLogin: isFromLogin === "true" ? true : false});
+
+        if (isFromLogin === "true" || isFromLogin === null) {
+            this.isAuthenticated ();
+        }
     }
 
     async isAuthenticated () {
@@ -30,7 +41,7 @@ class Home extends React.Component {
         try {
             const data = await fetchUserInfos (accessToken);
 
-            this.setState ({user: data});
+            this.setState ({user: data, isFromLogin: true});
         } catch (error) {
             const refreshToken = localStorage.getItem ("refreshToken");
 
@@ -45,7 +56,7 @@ class Home extends React.Component {
     
                     const user = await fetchUserInfos (newAccessToken);
 
-                    this.setState ({user});
+                    this.setState ({user, isFromLogin: true});
 
                 } catch (error) {
                     localStorage.removeItem ("accessToken");
@@ -59,6 +70,23 @@ class Home extends React.Component {
         }
     }
 
+    getWeekDay () {
+        const days = [
+            "ótimo domingo",
+            "ótima segunda-feira",
+            "ótima terça-feira",
+            "ótima quarta-feira",
+            "ótima quinta-feira",
+            "ótima sexta-feira",
+            "ótimo sábado"];
+
+        const now = new Date ();
+
+        const day = now.getDay ();
+
+        return days[day];
+    }
+
     render () {
         return (
             <div id="home-main-container">
@@ -68,7 +96,7 @@ class Home extends React.Component {
                     <h2>Shopee Supplier Calculator</h2>
 
                     <div id="user-info">
-                        <span id="logged-as-info">Logado como <span id="user-name">{this.state.user.name}</span></span>
+                    <span id="logged-as-info">Logado como <span id="user-name">{this.state.user.name || "Não autenticado"}</span></span>
                     </div>
 
                     <button id="sign-out-btn" onClick={() => {
@@ -78,12 +106,67 @@ class Home extends React.Component {
                         }}>SAIR</button>
                 </header>
 
-                <div id="pages-container">
+                <section id="first-section">
+                    <h1>Olá{this.state.user ? this.state.user.name : " "}, {this.getWeekDay ()}</h1>
+
+                    <p>Bem-vindo ao Shopee Supplier Calculator, o sistema feito para te auxiliar nas suas finanças</p>
+
+                    <h3>➜ Qual opção deseja?</h3>
+
+                    <div id="opts-cards"
+                         onClick={this.state.isFromLogin ? () => window.location.href = "/list-dashboard" : () => {}}>
+                        <div id="card-one"
+                             className={this.state.isFromLogin ? "" : "disabled-auth"}>
+                            <span>➜</span>
+                            <span id="auth-needed" className={this.state.isFromLogin ? "" : "not-logged"}>Necessário autenticação</span>
+                            Listar pedidos manualmente e ver suas métricas
+                            </div>
+                        <div id="card-two"
+                             onClick={() => document.getElementById ("main-container-label")
+                                .scrollIntoView ({behavior: "smooth"})
+                             }>
+                            <span>➜</span>
+                            Gerar tabelas a partir de etiquetas de pedidos
+                            </div>
+                        <div id="card-three">
+                            <span>➜</span>
+                            Gerar tabelas com informações revelantes a partir de tabela de pedidos
+                            </div>
+                    </div>
+
+
+                    {/* <div id="cards">
+                        <div id="card-1">
+                            <h4>listar e ver métricas dos pedidos manualmente</h4>
+                            <img src={cardOne}></img>
+                        </div>
+                        <div id="card-2">
+                            <h4>Gerar tabelas a partir de etiquetas de pedidos</h4>
+                        </div>
+                        <div id="card-3">
+                            <h4>Gerar tabelas e métricas a partir de uma tabela de pedidos (exportados pela Shopee)</h4>
+                        </div>
+                    </div> */}
+                </section>
+
+                {/* <div id="pages-container">
+                    {this.state.isFromLogin ? (<></>) : (<span id="auth-required">Necessário autenticação</span>)}
+                    
                     <div id="pages-container-heading"><h2>Escolha uma das opcões abaixo</h2></div>
-                    <div id="manuable-list" onClick={() => window.location.href = "/list-dashboard"}>Inserir lista manualmente</div>
-                    <div className="in-dev">Gerar tabela a partir de etiquetas - Em desenvolvimento</div>
+                    <div 
+                        id="manuable-list" 
+                        onClick={() => this.state.isFromLogin ? window.location.href = "/list-dashboard" : null}
+                        className={this.state.isFromLogin ? "enabled" : "disabled"}>
+                        Inserir lista manualmente</div>
+
+                    <div
+                        id="table-from-label"
+                        onClick={() => window.location.href = "/label"} 
+                        className="in-dev">Gerar tabela a partir de etiquetas</div>
                     <div className="in-dev">Gerar métricas a partir de tabelas - Em desenvolvimento</div>
-                </div>      
+                </div>       */}
+                    <LabelDrop />
+
             </div>
         );
     }

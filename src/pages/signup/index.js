@@ -77,7 +77,7 @@ class Signup extends React.Component {
 
                         <h2 id="mobile-heading">Cadastro de usuário</h2>
 
-                        <button id="back-btn-signup" onClick={() => window.location.href = "/"}>VOLTAR</button>
+                        <button id="back-btn-signup" onClick={() => window.location.href = "/unauthenticated-home"}>VOLTAR</button>
 
                         <form id="signup-form" onSubmit={this.sendSignup}>
 

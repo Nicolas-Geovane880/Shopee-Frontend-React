@@ -171,7 +171,7 @@
 }
 
 #signup-header {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -179,7 +179,7 @@
     padding-left: 10px;
     width: 100%;
     height: 10vh;
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.555);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.384);
 }
 
 #signup-header img {
@@ -190,9 +190,9 @@
 #signup-header h2 {
     font-family: "Roboto";
     font-size: 30px;
-    color: #1b1b1b;
+    color: #ffffffc9;
     font-weight: 300;
-    border-left: 3px solid #3a4eff;
+    border-left: 3px solid #ffa012;
     padding-left: 5px;
 }
 
@@ -263,5 +263,39 @@
     #signup-error-message {
         width: 80%;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.151);
+    }
+
+    #back-btn-signup {
+        top: 70%;
+        left: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    #signup-form {
+        height: 80%;
+    }
+
+    #back-btn-signup {
+        top: 92%;
+        left: 20px;
+    }
+}
+
+@media (max-width: 500px) and (min-width: 400px) {
+    #signup-form {
+        height: 60%;
+    }
+
+    #back-btn-signup {
+        top: 70%;
+        left: 20px;
+    }
+}
+
+@media (max-width: 800px) and (min-width: 500px) {
+    
+    #signup-form {
+        left: 5%;
     }
 }

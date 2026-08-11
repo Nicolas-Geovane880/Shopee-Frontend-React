@@ -231,5 +231,50 @@
         width: 80%;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.151);
     }
+
+    #back-btn {
+        top: 52%;
+        left: 20px;
+    }
+}
+
+/* @media (max-width: 800px) {
+    #login-form {
+        height: 45%;
+    }
+
+    #back-btn {
+        top: 57%;
+        left: 20px;
+    }
+} */
+
+@media (max-width: 400px) {
+    #login-form {
+        height: 50%;
+    }
+
+    #back-btn {
+        top: 61%;
+        left: 20px;
+    }
+}
+
+@media (max-width: 500px) and (min-width: 400px) {
+    #login-form {
+        height: 47%;
+    }
+
+    #back-btn {
+        top: 58%;
+        left: 20px;
+    }
+}
+
+@media (max-width: 800px) and (min-width: 500px) {
+    
+    #back-btn {
+        left: 5%;
+    }
 }
 
