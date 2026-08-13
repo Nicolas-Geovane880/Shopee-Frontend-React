@@ -1,13 +1,11 @@
 import React from "react";
-import "./label.css"
+import "./style.css";
+import uploadBlackIcon from "../../assets/images/upload-black.png";
 import uploadIcon from "../../assets/images/upload.png";
 import tableIcon from "../../assets/images/table.png";
-import labelIcon from "../../assets/images/label.png";
 import timeIcon from "../../assets/images/timer.png";
-import AOS from "aos";
-import "aos/dist/aos.css"
 
-class LabelDrop extends React.Component {
+class MetricsTable extends React.Component {
 
     constructor (props) {
         super (props);
@@ -23,22 +21,19 @@ class LabelDrop extends React.Component {
         }
 
         this.handleFile = this.handleFile.bind (this);
-        this.sendFiles = this.sendFiles.bind (this);
-        this.validateFiles = this.validateFiles.bind (this);
+        this.validateFile = this.validateFile.bind (this);
         this.handleInputFile = this.handleInputFile.bind (this);
+        this.sendFile = this.sendFile.bind (this);
     }
 
     componentDidMount () {
-        AOS.init ({
-            duration: 800,
-            once: false
-        })
+        
     }
 
     handleFile (e) {
         e.preventDefault ();
 
-        const files = Array.from (e.dataTransfer.files).filter (file => file.type === "application/pdf");
+        const files = Array.from (e.dataTransfer.files).filter (file => file.name.toLowerCase().endsWith(".xlsx"));
 
         this.setState (previousState => ({
             files: [
@@ -64,11 +59,15 @@ class LabelDrop extends React.Component {
         }))
     }
 
-    validateFiles (files) {
+    validateFile (files) {
         let fileErrorMessage = ""
 
         if (files.length === 0) {
-            fileErrorMessage = "Exporte pelo menos 1 arquivo PDF";
+            fileErrorMessage = "Exporte pelo menos 1 arquivo .xlsx";
+        }
+
+        if (files.length > 1) {
+            fileErrorMessage = "Exporte apenas 1 arquivo .xlsx";
         }
 
         this.setState ({fileErrorMessage});
@@ -78,8 +77,8 @@ class LabelDrop extends React.Component {
         return true;
     }
 
-    async sendFiles () {
-        const isValid = this.validateFiles (this.state.files);
+    async sendFile () {
+        const isValid = this.validateFile (this.state.files);
 
         if (!isValid) return;
 
@@ -87,49 +86,48 @@ class LabelDrop extends React.Component {
 
         const formData = new FormData ();
 
-        this.state.files.forEach (file => formData.append ("files", file));
+        this.state.files.forEach (file => formData.append ("file", file));
 
         try {
-                const response = await fetch (`${process.env.REACT_APP_API_URL_SPRING}/api/v1/labels/`, {
-                    method: "POST",
-                    body: formData,
-                }).catch (() => {throw new Error ("acacacacac")});
-                
-                if (!response.ok) {
-                    const data = await response.json ();
-                    throw new Error (data.message);
-                }
-        
-                const blob = await response.blob ();
-        
-                const url = window.URL.createObjectURL (blob);
-        
-                const a = document.createElement ("a");
-                a.href = url;
-                a.download = `Relatorio_Etiquetas${new Date (Date.now ()).toISOString ().split ("T")[0]}.pdf`;
-        
-                a.click ();
-        
-                window.URL.revokeObjectURL (url);
+            const response = await fetch (`${process.env.REACT_APP_API_URL_SPRING}/api/v1/orders/`, {
+                method: "POST",
+                body: formData,
+            }).catch (() => {throw new Error ("Erro no fetch")});
+            
+            if (!response.ok) {
+                const data = await response.json ();
+                throw new Error (data.message);
+            }
+    
+            const blob = await response.blob ();
+    
+            const url = window.URL.createObjectURL (blob);
+    
+            const a = document.createElement ("a");
+            a.href = url;
+            a.download = `Relatorio_Pedidos_${new Date (Date.now ()).toISOString ().split ("T")[0]}.pdf`;
+    
+            a.click ();
+    
+            window.URL.revokeObjectURL (url);
         } catch (error) {
             this.setState ({fileErrorMessage: error.message});
         } finally {
             this.setState ({loading: false});
         }
-
     }
 
     render () {
         return (
-            <div id="main-container-label">
+            <div id="metrics-table-main-container">
                 <div id="cards-info" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1000">
                     <div>
-                        <h2>Exporte suas etiquetas em .pdf</h2>
-                        <img src={labelIcon} alt=""></img>
+                        <h2>Exporte a tabela de pedidos em formato .xlsx</h2>
+                        <img src={tableIcon} alt=""></img>
                     </div>
                     <div>
                         <h2>O download irá começar automaticamente</h2>
-                        <img src={tableIcon} alt=""></img>
+                        <img src={uploadBlackIcon} alt=""></img>
                     </div>
                     <div>
                         <h2>Processamento imediato</h2>
@@ -138,7 +136,7 @@ class LabelDrop extends React.Component {
                 </div>
                 <div id="file-area-ctn" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <div id="file-with-heading">
-                        <h1>Exporte as etiquetas em formato PDF na área abaixo</h1>
+                        <h1>Exporte a tabela de pedidos em .xlsx na área abaixo</h1>
 
                         <div id="file-with-span">
                             <div id="files-area" className={`
@@ -160,29 +158,36 @@ class LabelDrop extends React.Component {
                         </div>
                     </div>
 
-                    <button onClick={this.sendFiles}
+                    <button onClick={this.sendFile}
                             disabled={this.state.loading}
                             className={this.state.loading ? "loading" : ""}>
                         <span id="arrow-btn">➜</span>
                         {this.state.loading ? this.state.loadingStatus : "Gerar tabela"}
                         <span
-                             id="progress-bar"
-                             className={this.state.loading ? "progress-go" : ""}></span>
+                                id="progress-bar"
+                                className={this.state.loading ? "progress-go" : ""}></span>
                     </button>
 
-                    <input type="file" id="open-file-hidden" multiple onChange={this.handleInputFile}/>
+                    <input type="file"
+                           id="open-file-hidden"
+                           onChange={this.handleInputFile}
+                           accept=".xlsx"/>
 
-                    <label for="open-file-hidden" id="open-file-label">
+                    <label for="open-file-hidden"
+                           id="open-file-label">
                         Selecionar Arquivos
                     </label>
 
-                    <label id="remove-files" onClick={() => this.setState ({files: []})}>
+                    <label id="remove-files"
+                           onClick={() => this.setState ({files: []})}>
                         Remover Arquivos
                     </label>
                 </div>
             </div>
         )
     }
+
+
 }
 
-export default LabelDrop;
+export default MetricsTable;

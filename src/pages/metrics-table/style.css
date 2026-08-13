@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+#metrics-table-main-container {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 100vh;
+    top: 100vh;
+    padding-top: 120px;
+    margin: 0 auto;
+    background-color: transparent;
+}

@@ -1,9 +1,9 @@
 import React from "react";
 import "./unauthenticatedHome.css"
-import OrangeBigButton from "../../components/OrangeBigButton";
 import "../../global.css";
-import teste from "../../assets/images/teste.png";
-import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
+import minimalistIcon from "../../assets/images/teste1.png";
+import icon from "../../assets/images/icon.png";
+import DinamicButton from "../../components/DinamicButton";
 
 class UnauthenticatedHome extends React.Component {
 
@@ -17,30 +17,34 @@ class UnauthenticatedHome extends React.Component {
         return (
             <div id="main-container">
                 <header id="this-home-header">
-                    <img src={minimalistIconUltra} alt=""></img>
+                    <img src={minimalistIcon} alt=""></img>
                     
                     <h2>Entrar ou cadastrar</h2>
                 </header>
 
                 <div id="this-home-main-container">
                     
-                    <img id="this-home-img" src={teste} alt=""></img>
-
                     <div id="this-home-container">
 
                         <h2 id="mobile-heading">Entrar ou cadastrar</h2>
                         <div id="redirect-btns-container">
-                            <span>É novo por aqui?</span>
-                            <OrangeBigButton text="CADASTRAR-SE | É GRÁTIS" act={() => window.location.href = "/signup"}/>
+                            <img src={icon} alt=""></img>
+                            <span className="is-new-user">É novo por aqui?</span>
+
+                            <DinamicButton act={() => window.location.href = "/signup"} text="Cadastrar-se | É GRATIS"/>
 
                             <div id="or-container">
                                 <hr></hr>
-                                <span>Ou</span>
+                                <span className="is-new-user">Ou</span>
                                 <hr></hr>
                             </div>
 
-                            <OrangeBigButton text="ENTRAR" act={() => window.location.href = "/login"}/>
+                            <a href="/login">Entrar</a>
+                            {/* <DinamicButton act={() => window.location.href = "/login"} text="Entrar"/> */}
                         </div>
+
+                        {/* <DinamicButton act={() => window.location.href = "/?is_from_login=false"} text="Usar recursos sem autenticar"/> */}
+
 
                         <button id="go-in-unauth" onClick={() => window.location.href = "/?is_from_login=false"}>Usar recursos sem autenticação</button>
 

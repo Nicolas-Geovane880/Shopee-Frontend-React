@@ -121,6 +121,54 @@ input.field-has-error {
     background-color: rgb(253, 82, 104) !important;
 }
 
+.dinamic-button {
+    width: fit-content;
+    padding: 5px;
+    height: 44px;
+    background-image: linear-gradient(to right, #ff641d, #fc7e44);
+    border: none;
+    color: white;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 17px;
+    font-weight: 400;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.arrow-btn {
+    width: 0;
+    height: 80%;
+    color: transparent;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 900;
+    transition: all 0.3s ease;
+    margin-left: 0;
+    opacity: 0;
+    padding-bottom: 2px;
+}
+
+.dinamic-button:hover .arrow-btn {
+    width: 30px;
+    margin-right: 10px;
+    color: #000000;
+    opacity: 1;
+}
+
+.dinamic-button:hover {
+    box-shadow: 0px 0px 10px #fd6721ec;
+}
+
 /* input:focus {
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.555);

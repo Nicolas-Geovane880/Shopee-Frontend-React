@@ -1,8 +1,10 @@
 import React from "react";
 import { fetchUserInfos, sendRefreshToken } from "./fetch";
 import "./home.css"
-import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
+import minimalistIcon from "../../assets/images/teste1.png";
 import LabelDrop from "../label";
+import MetricsTable from "../metrics-table";
+import DinamicButton from "../../components/DinamicButton";
 
 class Home extends React.Component {
     
@@ -15,7 +17,11 @@ class Home extends React.Component {
             errorMessage: "",
 
             isFromLogin: false,
+
+            generateTableFromTableOrLabel: "label",
         }
+
+        this.renderTableGeneration = this.renderTableGeneration.bind (this);
     }
 
     componentDidMount () {
@@ -86,11 +92,17 @@ class Home extends React.Component {
         return days[day];
     }
 
+    async renderTableGeneration (generationType) {
+        this.setState ({generateTableFromTableOrLabel: generationType});
+    }
+
     render () {
         return (
             <div id="home-main-container">
                 <header id="home-header">
-                    <img src={minimalistIconUltra} alt=""></img>
+                    <img src={minimalistIcon} alt="" onClick={() => document.getElementById ("home-main-container")
+                        .scrollIntoView ({behavior: "smooth"})
+                    } title="Home"></img>
 
                     <h2>Shopee Supplier Calculator</h2>
 
@@ -98,11 +110,19 @@ class Home extends React.Component {
                     <span id="logged-as-info">Logado como <span id="user-name">{this.state.user.name || "Não autenticado"}</span></span>
                     </div>
 
-                    <button id="sign-out-btn" onClick={() => {
+                    <div id="sign-out-btn">
+                        <DinamicButton act={() => {
+                            localStorage.removeItem ("accessToken");
+                            localStorage.removeItem ("refreshToken");
+                            window.location.href = "/unauthenticated-home"
+                            }} text="&nbsp; SAIR &nbsp;"/>
+                    </div>
+
+                    {/* <button id="sign-out-btn" onClick={() => {
                         localStorage.removeItem ("accessToken");
                         localStorage.removeItem ("refreshToken");
                         window.location.href = "/unauthenticated-home"
-                        }}>SAIR</button>
+                        }}>SAIR</button> */}
                 </header>
 
                 <section id="first-section">
@@ -116,55 +136,40 @@ class Home extends React.Component {
                         <div id="card-one"
                              className={this.state.isFromLogin ? "" : "disabled-auth"}
                              onClick={this.state.isFromLogin ? () => window.location.href = "/list-dashboard" : () => {}}>
+
                             <span className="arrow">➜</span>
                             <span id="auth-needed" className={this.state.isFromLogin ? "logged" : "not-logged"}>Necessário autenticação</span>
                             Listar pedidos manualmente e ver suas métricas
-                            </div>
+
+                        </div>
+
                         <div id="card-two"
-                             onClick={() => document.getElementById ("main-container-label")
-                                .scrollIntoView ({behavior: "smooth"})
-                             }>
+                             onClick={async () => {
+                                await this.renderTableGeneration ("label")
+                                document.getElementById ("main-container-label")
+                                    .scrollIntoView ({behavior: "smooth"})
+                             }}>
+
                             <span className="arrow">➜</span>
                             Gerar tabelas a partir de etiquetas de pedidos
+
                         </div>
-                        <div id="card-three">
+                        <div id="card-three"
+                            onClick={async () => {
+                                await this.renderTableGeneration ("table")
+                                document.getElementById ("metrics-table-main-container")
+                                    .scrollIntoView ({behavior: "smooth"})}
+                            }>
+
                             <span className="arrow">➜</span>
                             Gerar tabelas com informações revelantes a partir de tabela de pedidos
                             </div>
+
                     </div>
-
-
-                    {/* <div id="cards">
-                        <div id="card-1">
-                            <h4>listar e ver métricas dos pedidos manualmente</h4>
-                            <img src={cardOne}></img>
-                        </div>
-                        <div id="card-2">
-                            <h4>Gerar tabelas a partir de etiquetas de pedidos</h4>
-                        </div>
-                        <div id="card-3">
-                            <h4>Gerar tabelas e métricas a partir de uma tabela de pedidos (exportados pela Shopee)</h4>
-                        </div>
-                    </div> */}
                 </section>
 
-                {/* <div id="pages-container">
-                    {this.state.isFromLogin ? (<></>) : (<span id="auth-required">Necessário autenticação</span>)}
+                    {this.state.generateTableFromTableOrLabel === "label" ? (<LabelDrop />) : (<MetricsTable />)}
                     
-                    <div id="pages-container-heading"><h2>Escolha uma das opcões abaixo</h2></div>
-                    <div 
-                        id="manuable-list" 
-                        onClick={() => this.state.isFromLogin ? window.location.href = "/list-dashboard" : null}
-                        className={this.state.isFromLogin ? "enabled" : "disabled"}>
-                        Inserir lista manualmente</div>
-
-                    <div
-                        id="table-from-label"
-                        onClick={() => window.location.href = "/label"} 
-                        className="in-dev">Gerar tabela a partir de etiquetas</div>
-                    <div className="in-dev">Gerar métricas a partir de tabelas - Em desenvolvimento</div>
-                </div>       */}
-                    <LabelDrop />
 
             </div>
         );

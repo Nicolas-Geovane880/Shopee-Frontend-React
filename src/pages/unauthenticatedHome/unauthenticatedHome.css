@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     margin: 0;
@@ -7,15 +8,19 @@
 }
 
 #this-home-header {
-    background-color: white;
+    position: fixed;
+    z-index: 1000;
+    background-color: black;
     display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.384);
     align-items: center;
     justify-content: flex-start;
+    font-family: "Roboto";
     gap: 10px;
     padding-left: 10px;
     width: 100%;
     height: 10vh;
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.144);
 }
 
 #this-home-header img {
@@ -32,19 +37,18 @@
 }
 
 #this-home-header h2 {
-    font-family: "Roboto";
+    font-family: "JetBrain Mono", monospace;
     font-size: 30px;
-    color: #1b1b1b;
+    color: #ffffffec;
     font-weight: 300;
-    border-left: 3px solid #3a4eff;
     padding-left: 5px;
 }
 
 #this-home-main-container {
     margin: auto;
     width: 100%;
-    height: 90vh;
-    background-image: linear-gradient(to right bottom, #1123c7, #1e65ff);
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgb(8, 8, 8), rgb(24, 24, 24));
     display: flex;
     justify-content: center;
 }
@@ -55,20 +59,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
-#redirect-btns-container {
-    width: 60%;
-    height: 40%;
-    background-color: white;
-    border-radius: 10px;
+#redirect-btns-container a {
+    font-family: "JetBrains Mono", monospace;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+#redirect-btns-container a:hover {
+    background-color: #fd6f2d;
+}
+
+#redirect-btns-container {  
+    width: 100%;
+    height: 70%;
+    background-color: transparent;
+    border-radius: 20px;
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.226);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 15px;
     font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    position: relative;
+    padding-bottom: 10%;
+}
+
+#redirect-btns-container img {
+    width: 600px;
+    position: absolute;
+    top: -100px;
 }
 
 #or-container {
@@ -76,10 +104,11 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    color: white;
 }
 
 #or-container hr {
-    width: 30% !important;
+    width: 20% !important;
     border: none;
     border-top: 1px solid #ccc; /* cor e espessura da linha */
     margin: 10px 0;
@@ -87,6 +116,7 @@
 
 #mobile-heading {
     width: 0px;
+    opacity: 0;
 }
 
 #mobile-icon {
@@ -94,23 +124,30 @@
 }
 
 #go-in-unauth {
-    width: 21%;
+    width: 50%;
     height: 50px;
     position: absolute;
-    top: 65%;
+    top: 86%;
+    left: 0;
     background-color: #1123c700;
-    border: 2px solid white;
-    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 20px;
     color: white;
-    font-family: "Roboto";
-    font-size: 18px;
+    font-family: "JetBrains Mono";
+    font-weight: 300;
+    font-size: 16px;
     font-weight: 400;
     transition: all 0.3s ease;
 }
 
 #go-in-unauth:hover {
-    background-color: rgb(255, 255, 255);
-    color: #1123c7;
+    background-color: #fd6f2d;
+}
+
+.is-new-user {
+    color: white;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 17px;
 }
 
 @media (max-width: 900px) {

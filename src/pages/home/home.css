@@ -26,7 +26,14 @@
 #home-header img {
     width: 120px;
     border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
 } 
+
+#home-header img:hover {
+    background-color: rgba(26, 26, 26, 0.575);
+}
 
 #home-header h2 {
     font-family: "JetBrain Mono", monospace;
@@ -55,7 +62,7 @@
     border-radius: 5px;
 }
 
-#sign-out-btn {
+/* #sign-out-btn {
     border: none;
     width: 120px;
     height: 50px;
@@ -69,13 +76,13 @@
     position: absolute;
     right: 2%;
     transition: all 0.3s ease;
+} */
+
+#sign-out-btn {
+    position: absolute;
+    right: 10px;
 }
 
-#sign-out-btn:hover {
-    background-color: #ff641d;
-    /* border-radius: 10px; */
-    color: white;
-}
 
 #pages-container {
     margin: 80px auto;
@@ -222,13 +229,13 @@
 }
 
 #opts-cards div:hover {
-    box-shadow: 0px 0px 10px #fd6721ec;
+    box-shadow: 0px 0px 15px #fd6721;
 }
 
 #opts-cards .arrow {
     width: 0px;
-    height: 80%;
-    border-radius: 5px;
+    height: 60%;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.925);
     margin-right: 10px;
     opacity: 0;
@@ -242,7 +249,7 @@
 }
 
 #opts-cards div:hover .arrow {
-    width: 70px;
+    width: 50px;
     opacity: 1;
 }
 
