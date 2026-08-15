@@ -111,7 +111,12 @@ class MetricsTable extends React.Component {
     
             window.URL.revokeObjectURL (url);
         } catch (error) {
-            this.setState ({fileErrorMessage: error.message});
+            if (error.message.includes ("java.util.Map.get(Object)")) {
+                this.setState ({fileErrorMessage: "Provavelmente algum SKU não segue o formato esperado"});
+            }
+            else {
+                this.setState ({fileErrorMessage: error.message});
+            }
         } finally {
             this.setState ({loading: false});
         }

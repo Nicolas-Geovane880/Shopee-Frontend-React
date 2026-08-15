@@ -322,5 +322,145 @@
     transform: translateY(-3px);
 }
 
+@media (max-width: 900px) and (min-width: 400px) {
+    #cards-info {
+        width: 95%;
+    }
+
+    #cards-info div {
+        height: 70%;
+    }
+
+    #cards-info div h2 {
+        font-size: 13px;
+    }
+
+    #cards-info div img {
+        width: 50%;
+        padding: 10px;
+    }
+
+    #main-container-label {
+        padding-top: 30px;
+    }
+
+    #file-area-ctn {
+        width: 95%;
+        position: relative;
+    }
+
+    #file-with-span {
+        width: 100%;
+    }
+
+    #file-with-heading h1 {
+        text-align: center;
+        margin-bottom: 18%;
+        font-size: 16px;
+    }
+
+    #files-area {
+        width: 97%;
+        height: 30%;
+        border: 1px dashed rgba(170, 170, 170, 0.61);
+    }
+
+    #files-area.filled {
+        font-size: 15px;
+    }
+
+    #files-area img {
+        height: 55%;
+        width: 30px;
+    }
+
+    #open-file-label {
+        width: 48%;
+        top: 25%;
+        right: 51%
+    }
+
+    #remove-files {
+        width: 48%;
+        top: 25%;
+        left: 51%;
+    }
+
+    #file-area-ctn button {
+        position: absolute;
+        top: 60%;
+    }
+}
+
+@media (max-width: 400px) {
+    #cards-info {
+        width: 95%;
+    }
+
+    #cards-info div {
+        height: 70%;
+    }
+
+    #cards-info div h2 {
+        font-size: 13px;
+    }
+
+    #cards-info div img {
+        width: 50%;
+        padding: 10px;
+    }
+
+    #main-container-label {
+        padding-top: 30px;
+    }
+
+    #file-area-ctn {
+        width: 95%;
+        position: relative;
+    }
+
+    #files-area.filled {
+        font-size: 15px;
+    }
+
+    #file-with-span {
+        width: 100%;
+    }
+
+    #file-with-heading h1 {
+        text-align: center;
+        margin-bottom: 18%;
+        font-size: 16px;
+    }
+
+    #files-area {
+        width: 97%;
+        height: 40%;
+        border: 1px dashed rgba(170, 170, 170, 0.61)
+    }
+
+    #files-area img {
+        height: 55%;
+        width: 25px;
+    }
+
+    #open-file-label {
+        width: 48%;
+        top: 30%;
+        right: 51%
+    }
+
+    #remove-files {
+        width: 48%;
+        top: 30%;
+        left: 51%;
+    }
+
+    #file-area-ctn button {
+        position: absolute;
+        top: 70%;
+    }
+}
+
 
 

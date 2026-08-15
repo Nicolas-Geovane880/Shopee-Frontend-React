@@ -195,7 +195,7 @@
 }
 
 #first-section h3 {
-     margin-top: 50px;
+    margin-top: 50px;
     color: rgba(255, 255, 255, 0.801);
     font-family: "Montserrat", monospace;
     font-weight: 700;
@@ -315,7 +315,65 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px) and (min-width: 400px) {
+
+    #first-section {
+        padding-top: 10px;
+        padding-left: 0px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100px;
+        width: 90vw;
+        height: 55vh;
+    }
+
+    #first-section h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    #first-section p {
+        font-size: 18px;
+        width: 80%;
+        margin: 30px auto;
+        text-align: center;
+    }
+
+    #first-section h3 {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    #opts-cards {
+        width: 100%;
+        height: 260px;
+        align-items: center;
+    }
+
+    #opts-cards div {
+        width: 95%;
+        padding-left: 0px;
+    }
+
+    #auth-needed.not-logged {
+        right: 15%;
+        border-bottom-left-radius: 10px !important;
+        height: 20px !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    #home-header {
+        width: 100vw;
+    }
+
     #home-header h2 {
         width: 0px;
         font-size: 0px;
@@ -326,19 +384,87 @@
         font-size: 0
     }
 
-    #sign-out-btn {
-        border: 2px solid #ff641d;
-        width: 100px;
-        height: 50px;
-        background-color: transparent;
-        font-family: "Roboto";
-        font-weight: 900;
-        font-size: 14px;
-        border-radius: 10px;
+    #pages-container {
+        width: 90%;
+    }
+
+    #pages-container-heading h2 {
         color: white;
+        font-size: 25px;
+        font-weight: 400;
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    #first-section {
+        padding-top: 10px;
+        padding-left: 0px;
         position: absolute;
-        right: 2%;
-        transition: all 0.3s ease;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100px;
+        width: 90vw;
+        height: 80vh;
+    }
+
+    #first-section h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    #first-section p {
+        font-size: 18px;
+        width: 80%;
+        margin: 30px auto;
+        text-align: center;
+    }
+
+    #first-section h3 {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    #opts-cards {
+        width: 100%;
+        align-items: center;
+    }
+
+    #opts-cards div {
+        width: 95%;
+        padding-left: 0px;
+    }
+
+    #auth-needed.not-logged {
+        right: 12%;
+        border-bottom-left-radius: 10px !important;
+        height: 20px !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        width: 100vw;
+        overflow: hidden;
+    }
+
+    #home-header {
+        width: 100vw;
+    }
+
+    #home-header img {
+        width: 90px;
+    }
+
+    #home-header h2 {
+        width: 0px;
+        font-size: 0px;
+    }
+
+    #user-info {
+        width: 0px;
+        font-size: 0
     }
 
     #pages-container {
