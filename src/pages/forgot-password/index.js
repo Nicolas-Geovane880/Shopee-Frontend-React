@@ -1,7 +1,6 @@
 import React from "react";
 import { sendForgotPassword } from "./fetch";
 import minimalistIcon from "../../assets/images/teste1.png";
-import errorIcon from "../../assets/images/close.png"
 import { validateEmail } from "./validadeEmail";
 import "./style.css"
 import DinamicButton from "../../components/DinamicButton";

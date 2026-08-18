@@ -1,6 +1,5 @@
 import React from "react";
 import { sendLogin } from "./fetch";
-import errorIcon from "../../assets/images/close.png"
 import "../../global.css"
 import "./login.css"
 import { validateLogin } from "./validateLogin";

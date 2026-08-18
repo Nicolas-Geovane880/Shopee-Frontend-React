@@ -2,10 +2,7 @@ import React from "react";
 import "./signup.css"
 import { signup } from "./fetch";
 import { validateSignup } from "./validateSignup";
-import errorIcon from "../../assets/images/close.png"
 import "../../global.css"
-import OrangeBigButton from "../../components/OrangeBigButton";
-import teste from "../../assets/images/teste.png";
 import minimalistIcon from "../../assets/images/teste1.png";
 import view from "../../assets/images/view.png";
 import hide from "../../assets/images/hide.png";
