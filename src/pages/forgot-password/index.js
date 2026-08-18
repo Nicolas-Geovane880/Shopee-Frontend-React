@@ -1,10 +1,12 @@
 import React from "react";
 import { sendForgotPassword } from "./fetch";
-import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
+import minimalistIcon from "../../assets/images/teste1.png";
 import errorIcon from "../../assets/images/close.png"
 import { validateEmail } from "./validadeEmail";
 import "./style.css"
-
+import DinamicButton from "../../components/DinamicButton";
+import AOS from "aos";
+import "aos/dist/aos.css"
 
 class ForgotPassword extends React.Component {
 
@@ -25,6 +27,13 @@ class ForgotPassword extends React.Component {
         };
 
         this.forgotPassword = this.forgotPassword.bind (this);
+    }
+
+    componentDidMount () {
+        AOS.init ({
+            duration: 800,
+            once: true
+        })
     }
 
     async forgotPassword () {
@@ -50,35 +59,35 @@ class ForgotPassword extends React.Component {
     render () {
         if (this.state.sentRequest) {
             return (
-                <div>
+                <div id="forgot-psw-main-container">
                     <header id="this-home-header">
-                        <img src={minimalistIconUltra} alt=""></img>
+                        <img src={minimalistIcon} alt=""></img>
                         
                         <h2>Esqueci minha senha</h2>
                     </header>
 
-                    <div id="validate-code-container">
-                        <h2>O link de recuperação foi enviado para o email informado</h2>
+                    <div id="forgot-password-container-sent">
+                        <h2>O link de recuperação foi enviado para <span>{this.state.email}</span></h2>
                     </div>
                 </div>
             );
         }
 
         return (
-            <div>
-                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
+            <div id="forgot-psw-main-container">
+                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><span id="error-icon">⨂</span>{this.state.errorMessage}</div>
                 <header id="this-home-header">
-                    <img src={minimalistIconUltra} alt=""></img>
+                    <img src={minimalistIcon} alt=""></img>
                     
                     <h2>Esqueci minha senha</h2>
                 </header>
 
-                <div id="validate-code-container">
-                    <h2 id="forgot-password-heading">Informe seu endereço de email para mandarmos o link de recuperação</h2>
+                <div id="forgot-password-container" data-aos="fade-up">
 
-                    <span>{this.state.emailErrorMessage}</span>
+                    <div id="forgot-psw-input">
+                        <h2 id="forgot-password-heading">Informe seu email para mandarmos o link de recuperação</h2>
 
-                    <div id="validate-code-input">
+                        <span className="forgot-psw-error-message">{this.state.emailErrorMessage}</span>
                         <input
                             value={this.state.code} 
                             onChange={(e) => this.setState ({email: e.target.value, hiddenErrorMessage: "hidden"})} 
@@ -86,11 +95,7 @@ class ForgotPassword extends React.Component {
                             className={this.state.emailErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                         </input>
 
-                        <button onClick={this.forgotPassword} disabled={this.state.loading}>{this.state.loading ? 
-                                (
-                                    <span className="button-spinner"></span>
-                                ) :
-                                ("ENVIAR LINK")}</button>
+                        <DinamicButton text={this.state.loading ? "Enviando" : "Enviar link"} isDisabled={this.state.loading} isLoading={this.state.loading} act={this.forgotPassword}/>
                     </div>
                 </div>
             </div>

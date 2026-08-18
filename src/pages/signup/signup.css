@@ -11,15 +11,13 @@
 }
 
 #signup-main-container {
-    margin: auto;
     width: 100%;
-    height: 90vh;
-    background-image: linear-gradient(to right bottom, #1123c7, #1e65ff);
-    display: flex;
-    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgb(8, 8, 8), rgb(14, 14, 14));
 }
 
 #signup-container {
+    margin: auto;
     width: 35%;
     height: 85%;
     display: flex;
@@ -30,30 +28,31 @@
 
 #back-btn-signup {
     position: absolute;
-    left: 20%;
-    top: 15.5%;
+    left: 15%;
+    top: 16%;
     width: 100px;
     height: 40px;
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.171);
     border-radius: 10px;
     background-color: #1e65ff00;
-    font-family: "Roboto";
-    color: white;
+    font-family: "JetBrains Mono", monospace;
+    color: rgba(255, 255, 255, 0.747);
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
 #back-btn-signup:hover {
-    background-color: #ffffff;
-    color: #1123c7;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.664);
 }
 
 #signup-form {
-    width: 60%;
+    width: 70%;
     height: 55%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.171);
     align-items: center;
     gap: 10px;
     padding-top: 20px;
@@ -65,8 +64,7 @@
     margin-bottom: 20px;
 }
 
-#signup-form span {
-    margin: 0;
+.error-message-sgn {
     width: 95%;
     font-size: 13px;
     color: rgb(255, 62, 62);
@@ -76,15 +74,23 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#signup-form input::placeholder {
+    color: rgba(255, 255, 255, 0.712);
+}
+
 #signup-form input {
     width: 90%;
+    background-color: rgba(26, 26, 26, 0.685);
     height: 40px;
     padding: 0;
-    border: 1px solid rgba(0, 0, 0, 0.24);
+    border: 1px solid rgba(26, 26, 26, 0.685);
+    border-bottom: 1px solid #FF6823;
     padding-left: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 16px;
     transition: all 0.3s ease;
+    color: white;
+    font-weight: 400;
 }
 
 #first-password-container {
@@ -103,10 +109,11 @@
     right: 5%;
     padding: 6px;
     transition: all 0.3s ease;
+    filter: invert(100%);
 }
 
 #first-password-container img:hover {
-    background-color: rgba(241, 241, 241, 0.562);
+    background-color: rgba(44, 44, 44, 0.158);
 }
 
 #signup-form input.field-has-error {
@@ -116,9 +123,9 @@
 }
 
 #signup-form input:focus {
+    background-color: rgba(34, 34, 34, 0.911);
     outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.555);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.192);
+    border-bottom: 1px solid #fc7c40;
 }
 #show-password-btn {
     width: 30% !important;
@@ -131,22 +138,23 @@
 }
 
 #signup-error-message {
-    background-color: white;
+    background-color: black;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     width: 430px;
     height: 100px;
-    border-left: 6px solid rgba(255, 0, 0, 0.822);
+    border: 1px solid #FF6823;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
-    font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.397);
+    font-family: "JetBrains Mono", monospace;
     transition: all 0.4s ease;
+    z-index: 1010;
+    color: white;
 }
 
 #signup-error-message.hidden {
@@ -171,15 +179,19 @@
 }
 
 #signup-header {
-    background-color: rgba(255, 255, 255, 0);
+    position: fixed;
+    z-index: 1000;
+    background-color: black;
     display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.384);
     align-items: center;
     justify-content: flex-start;
+    font-family: "Roboto";
     gap: 10px;
     padding-left: 10px;
     width: 100%;
     height: 10vh;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.384);
 }
 
 #signup-header img {
@@ -188,11 +200,10 @@
 }
 
 #signup-header h2 {
-    font-family: "Roboto";
+    font-family: "JetBrain Mono", monospace;
     font-size: 30px;
-    color: #ffffffc9;
+    color: #ffffffec;
     font-weight: 300;
-    border-left: 3px solid #ffa012;
     padding-left: 5px;
 }
 

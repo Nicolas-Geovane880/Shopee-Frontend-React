@@ -1,9 +1,11 @@
 import React from "react";
 import { sendResendCode, sendValidateCode } from "./fetch";
-import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
+import minimalistIcon from "../../assets/images/teste1.png";
 import "./validate-code.css"
-import errorIcon from "../../assets/images/close.png"
 import { validateCodeInput } from "./validateCodeInput";
+import DinamicButton from "../../components/DinamicButton";
+import AOS from "aos";
+import "aos/dist/aos.css"
 
 class ValidateCode extends React.Component {
 
@@ -19,6 +21,8 @@ class ValidateCode extends React.Component {
 
             errorMessage: "",
             hiddenErrorMessage: "hidden",
+
+            loading: false,
         }
 
         this.startCooldown = this.startCooldown.bind (this);
@@ -34,6 +38,11 @@ class ValidateCode extends React.Component {
         const challengeId = params.get ("challengeId");
 
         this.setState ({challengeId});
+
+        AOS.init ({
+            duration: 800,
+            once: true
+        })
     }
 
     componentWillUnmount () {
@@ -60,6 +69,8 @@ class ValidateCode extends React.Component {
 
         if (!isValid) return;
 
+        this.setState ({loading: true});
+
         try {
             const data = await sendValidateCode (this.state.code, this.state.challengeId);
 
@@ -72,6 +83,8 @@ class ValidateCode extends React.Component {
 
         } catch (error) {
             this.setState ({errorMessage: error.message, hiddenErrorMessage: "show"});
+        } finally {
+            this.setState ({loading: false});
         }
     }
 
@@ -90,34 +103,42 @@ class ValidateCode extends React.Component {
 
     render () {
         return (
-            <div id="main-container">
-                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
+            <div id="validate-code-main-container">
+
+                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><span id="error-icon">⨂</span>{this.state.errorMessage}</div>
                 <header id="this-home-header">
-                    <img src={minimalistIconUltra} alt=""></img>
+                    <img src={minimalistIcon} alt=""></img>
                     
                     <h2>Validar código</h2>
                 </header>
 
-                <div id="validate-code-container">
+                <div id="validate-code-container" data-aos="fade-up">
                     <h2>Um código de verificação foi enviado para o email informado</h2>
 
-                    <span>{this.state.codeErrorMessage}</span>
-                    <div id="validate-code-input">
+
+                    <div id="validate-code-ctn">
+                        <span className="validate-code-error-message">{this.state.codeErrorMessage}</span>
                         <input
+                            id="validate-code-input"
                             value={this.state.code} 
                             onChange={(e) => this.setState ({code: e.target.value, hiddenErrorMessage: "hidden"})} 
                             placeholder="Insira o código"
                             className={this.state.codeErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                         </input>
 
-                        <button onClick={this.validateCode}>VALIDAR CÓDIGO</button>
+                        <span
+                            className={this.state.resendCooldown > 0 ? "disabled" : "unabled"}
+                            id="resend-code-span"
+                            onClick={this.state.resendCooldown <= 1 ? this.resendCode : () => {}}>{this.state.resendCooldown > 0 ? 
+                            `Reenviar código em ${this.state.resendCooldown}` : 
+                            "Reenviar código"}
+                        </span>
                     </div>
 
-                    <button disabled={this.state.resendCooldown > 0} id="resend-code-btn" onClick={this.resendCode}>
-                        {this.state.resendCooldown > 0 ? 
-                        `Reenviar código em ${this.state.resendCooldown}` : 
-                        "Reenviar código"}
-                    </button>   
+                    <DinamicButton act={this.state.loading ? () => {} : this.validateCode}
+                                   isLoading={this.state.loading}
+                                   isDisabled={this.state.disabled}
+                                   text={this.state.loading ? "Validando" : "Validar código"}/>
                 </div>
             </div>
         )

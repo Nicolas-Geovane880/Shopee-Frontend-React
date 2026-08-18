@@ -125,7 +125,7 @@ class MetricsTable extends React.Component {
     render () {
         return (
             <div id="metrics-table-main-container">
-                <div id="cards-info" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1000">
+                <div id="cards-info" data-aos="fade-down">
                     <div>
                         <h2>Exporte a tabela de pedidos em formato .xlsx</h2>
                         <img src={tableIcon} alt=""></img>
@@ -139,7 +139,7 @@ class MetricsTable extends React.Component {
                         <img src={timeIcon} alt=""></img>
                     </div>
                 </div>
-                <div id="file-area-ctn" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div id="file-area-ctn" data-aos="fade-up">
                     <div id="file-with-heading">
                         <h1>Exporte a tabela de pedidos em .xlsx na área abaixo</h1>
 

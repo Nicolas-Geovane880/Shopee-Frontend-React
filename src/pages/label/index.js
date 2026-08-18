@@ -19,7 +19,7 @@ class LabelDrop extends React.Component {
             fileErrorMessage: "",
 
             loading: false,
-            loadingStatus: "Carregando",
+            loadingStatus: "Gerando",
         }
 
         this.handleFile = this.handleFile.bind (this);
@@ -122,7 +122,7 @@ class LabelDrop extends React.Component {
     render () {
         return (
             <div id="main-container-label">
-                <div id="cards-info" data-aos="fade-down" data-aos-delay="200" data-aos-duration="1000">
+                <div id="cards-info" data-aos="fade-down">
                     <div>
                         <h2>Exporte suas etiquetas em .pdf</h2>
                         <img src={labelIcon} alt=""></img>
@@ -136,7 +136,7 @@ class LabelDrop extends React.Component {
                         <img src={timeIcon} alt=""></img>
                     </div>
                 </div>
-                <div id="file-area-ctn" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                <div id="file-area-ctn" data-aos="fade-up">
                     <div id="file-with-heading">
                         <h1>Exporte as etiquetas em formato PDF na área abaixo</h1>
 

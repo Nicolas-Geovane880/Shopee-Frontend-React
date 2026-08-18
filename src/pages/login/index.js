@@ -2,14 +2,15 @@ import React from "react";
 import { sendLogin } from "./fetch";
 import errorIcon from "../../assets/images/close.png"
 import "../../global.css"
-import OrangeBigButton from "../../components/OrangeBigButton";
 import "./login.css"
 import { validateLogin } from "./validateLogin";
 import "../../global.css";
-import teste from "../../assets/images/teste.png";
-import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
+import minimalistIcon from "../../assets/images/teste1.png";
 import view from "../../assets/images/view.png";
 import hide from "../../assets/images/hide.png";
+import DinamicButton from "../../components/DinamicButton";
+import AOS from "aos";
+import "aos/dist/aos.css"
 
 class Login extends React.Component {
 
@@ -38,8 +39,17 @@ class Login extends React.Component {
         this.showPassword = this.showPassword.bind (this);
     }
 
+    componentDidMount () {
+        AOS.init ({
+            duration: 800,
+            once: true
+        })
+    }
+
     async login (event) {
         event.preventDefault ();
+
+        await setTimeout (() => {}, 10000);
 
         const isValid = validateLogin (this.state.email, this.state.password, this);
 
@@ -71,10 +81,10 @@ class Login extends React.Component {
     render () {
         return (
             <div id="main-container">
-                <div id="login-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
+                <div id="login-error-message" className={this.state.hiddenErrorMessage}><span id="error-icon">⨂</span>{this.state.errorMessage}</div>
 
                 <header id="login-header">
-                    <img src={minimalistIconUltra} alt=""></img>
+                    <img src={minimalistIcon} alt=""></img>
                     
                     <h2 id="teste">Entrar</h2>
                 </header>
@@ -82,16 +92,14 @@ class Login extends React.Component {
 
                 <div id="login-main-container">
                     
-                    <img id="login-img" src={teste} alt=""></img>
-
-                    <div id="login-container">
+                    <div id="login-container" data-aos="fade-up">
                         <h2 id="mobile-heading">Entrar na conta</h2>
                         
-                        <button id="back-btn" onClick={() => window.location.href = "/unauthenticated-home"}>VOLTAR</button>
+                        <button id="back-btn" onClick={() => window.location.href = "/unauthenticated-home"}>Voltar</button>
                         
                         <form id="login-form" onSubmit={this.login}>
 
-                            <span>{this.state.emailErrorMessage}</span>
+                            <span className="error-message">{this.state.emailErrorMessage}</span>
                             <input 
                                 type="text" 
                                 placeholder="E-mail" 
@@ -99,7 +107,7 @@ class Login extends React.Component {
                                 className={this.state.emailErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                             </input>
 
-                            <span>{this.state.passwordErrorMessage}</span>
+                            <span className="error-message">{this.state.passwordErrorMessage}</span>
                             <div id="password-container">
                                 <input 
                                     type={this.state.showPassword ? "text" : "password"} 
@@ -112,12 +120,7 @@ class Login extends React.Component {
 
                             <a href="/forgot-password" target="blank" id="forgot-password-link">Esqueci minha senha</a>
 
-                            <OrangeBigButton text={
-                                this.state.loading ? 
-                                (
-                                    <span className="button-spinner"></span>
-                                ) :
-                                ("ENTRAR")} disabled={this.state.loading}/>
+                            <DinamicButton text={this.state.loading ? "Entrando" : "Entrar"} isLoading={this.state.loading} isDisabled={this.state.loading ? true : false}/>
                         </form>
                     </div>
                 </div>

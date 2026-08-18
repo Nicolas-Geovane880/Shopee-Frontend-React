@@ -6,9 +6,12 @@ import errorIcon from "../../assets/images/close.png"
 import "../../global.css"
 import OrangeBigButton from "../../components/OrangeBigButton";
 import teste from "../../assets/images/teste.png";
-import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
+import minimalistIcon from "../../assets/images/teste1.png";
 import view from "../../assets/images/view.png";
 import hide from "../../assets/images/hide.png";
+import DinamicButton from "../../components/DinamicButton";
+import AOS from "aos";
+import "aos/dist/aos.css"
 
 class Signup extends React.Component {
 
@@ -38,7 +41,13 @@ class Signup extends React.Component {
 
         this.sendSignup = this.sendSignup.bind (this);
         this.showPassword = this.showPassword.bind (this);
+    }
 
+    componentDidMount () {
+        AOS.init ({
+            duration: 800,
+            once: true
+        })
     }
 
     async sendSignup(event) {
@@ -60,10 +69,10 @@ class Signup extends React.Component {
     render () {
         return (
             <div id="main-container">
-                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
+                <div id="signup-error-message" className={this.state.hiddenErrorMessage}><span id="error-icon">⨂</span>{this.state.errorMessage}</div>
 
                 <header id="signup-header">
-                    <img src={minimalistIconUltra} alt=""></img>
+                    <img src={minimalistIcon} alt=""></img>
                     
                     <h2>Cadastro de usuário</h2>
                 </header>
@@ -71,17 +80,15 @@ class Signup extends React.Component {
 
                 <div id="signup-main-container">
                     
-                    <img id="signup-img" src={teste} alt=""></img>
-
-                    <div id="signup-container">
+                    <div id="signup-container" data-aos="fade-up">
 
                         <h2 id="mobile-heading">Cadastro de usuário</h2>
 
-                        <button id="back-btn-signup" onClick={() => window.location.href = "/unauthenticated-home"}>VOLTAR</button>
+                        <button id="back-btn-signup" onClick={() => window.location.href = "/unauthenticated-home"}>Voltar</button>
 
                         <form id="signup-form" onSubmit={this.sendSignup}>
 
-                            <span>{this.state.nameErrorMessage}</span>
+                            <span className="error-message-sgn">{this.state.nameErrorMessage}</span>
                             <input
                                 type="text"
                                 placeholder="Nome"
@@ -89,7 +96,7 @@ class Signup extends React.Component {
                                 className={this.state.nameErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                             </input>
 
-                            <span>{this.state.emailErrorMessage}</span>
+                            <span className="error-message-sgn">{this.state.emailErrorMessage}</span>
                             <input 
                                 type="text" 
                                 placeholder="E-mail" 
@@ -97,8 +104,7 @@ class Signup extends React.Component {
                                 className={this.state.emailErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                             </input>
  
-                            <span>{this.state.passwordErrorMessage}</span>
-
+                            <span className="error-message-sgn">{this.state.passwordErrorMessage}</span>
                             <div id="first-password-container">
                                 <input
                                     id="first-password" 
@@ -110,7 +116,7 @@ class Signup extends React.Component {
                                 <img src={this.state.showPasswordSrc} onClick={this.showPassword} alt=""></img>
                             </div>
 
-                            <span>{this.state.confirmPasswordErrorMessage}</span>
+                            <span className="error-message-sgn">{this.state.confirmPasswordErrorMessage}</span>
                             <input 
                                 id="confirm-password-input" 
                                 type="password" 
@@ -119,12 +125,7 @@ class Signup extends React.Component {
                                 className={this.state.confirmPasswordErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                             </input>
 
-                            <OrangeBigButton text={
-                                this.state.loading ? 
-                                (
-                                    <span className="button-spinner"></span>
-                                ) :
-                                ("CADASTRAR-SE")} disabled={this.state.loading}/> 
+                            <DinamicButton text={this.state.loading ? "Cadastrando" : "Cadastrar-se"} isLoading={this.state.loading} isDisabled={this.state.loading ? true : false}/> 
                         </form>
                     </div>
                 </div>

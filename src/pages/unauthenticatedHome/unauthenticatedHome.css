@@ -129,19 +129,19 @@
     position: absolute;
     top: 86%;
     left: 0;
-    background-color: #1123c700;
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    border-radius: 20px;
-    color: white;
-    font-family: "JetBrains Mono";
-    font-weight: 300;
-    font-size: 16px;
-    font-weight: 400;
+    border: 1px solid rgba(255, 255, 255, 0.171);
+    border-radius: 10px;
+    background-color: #1e65ff00;
+    font-family: "JetBrains Mono", monospace;
+    color: rgba(255, 255, 255, 0.747);
+    font-weight: 600;
     transition: all 0.3s ease;
+    font-size: 15px;
 }
 
 #go-in-unauth:hover {
-    background-color: #fd6f2d;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.664);
 }
 
 .is-new-user {

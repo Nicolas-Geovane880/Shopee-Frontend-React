@@ -1,10 +1,11 @@
 import React from "react";
 import { sendResetPassword } from "./fetch";
-import minimalistIconUltra from "../../assets/images/minimalist-ultra-icon.png";
+import minimalistIcon from "../../assets/images/teste1.png";
 import errorIcon from "../../assets/images/close.png"
 import "./reset-password.css"
 import view from "../../assets/images/view.png";
 import hide from "../../assets/images/hide.png";
+import DinamicButton from "../../components/DinamicButton";
 
 class ResetPassword extends React.Component {
 
@@ -60,10 +61,12 @@ class ResetPassword extends React.Component {
 
         if (newPasswordHasError !== "" || confirmNewPasswordHasError !== "") return;
 
+        this.setState ({loading: true});
+
         const isSuccess = await sendResetPassword (this.state.newPassword, this.state.token);
 
-        if (isSuccess) this.setState ({isRequestSuccess: true});
-        else this.setState ({isRequestSuccess: false});
+        if (isSuccess) this.setState ({isRequestSuccess: true, loading: false});
+        else this.setState ({isRequestSuccess: false, loading: false});
     }
 
     showPassword () {
@@ -77,9 +80,9 @@ class ResetPassword extends React.Component {
     render () {
         if (this.state.isRequestSuccess) {
             return (
-                <div>
+                <div id="reset-password-main-container">
                     <header id="this-home-header">
-                        <img src={minimalistIconUltra} alt=""></img>
+                        <img src={minimalistIcon} alt=""></img>
                         
                         <h2>Alterar senha</h2>
                     </header>
@@ -93,10 +96,11 @@ class ResetPassword extends React.Component {
         }
 
         return (
-            <div id="main-container">
+            <div id="reset-password-main-container">
                 <div id="signup-error-message" className={this.state.hiddenErrorMessage}><img id="error-icon" src={errorIcon} alt=""></img>{this.state.errorMessage}</div>
-                <header id="this-home-header">
-                    <img src={minimalistIconUltra} alt=""></img>
+
+                <header id="reset-password-header">
+                    <img src={minimalistIcon} alt=""></img>
                     
                     <h2>Alterar senha</h2>
                 </header>
@@ -105,7 +109,9 @@ class ResetPassword extends React.Component {
                     <h2>Nova senha</h2>
 
                     <form onSubmit={this.resetPassword}>
-                        <span id="new-password-span">{this.state.newPasswordErrorMessage}</span>
+                        <span 
+                            id="new-password-span"
+                            className="reset-password-error-message">{this.state.newPasswordErrorMessage}</span>
 
                         <div>
                             <input
@@ -118,16 +124,19 @@ class ResetPassword extends React.Component {
                             <img src={this.state.showPasswordSrc} onClick={this.showPassword} alt=""></img>
                         </div>
 
-                        <span>{this.state.confirmNewPasswordErrorMessage}</span>
+                        <span className="reset-password-error-message">{this.state.confirmNewPasswordErrorMessage}</span>
 
-                        <input 
+                        <input
+                            id="confirm-password-input" 
                             type="password"
                             placeholder="Confirmar nova senha" 
                             onChange={(e) => this.setState ({confirmNewPassword: e.target.value})}
                             className={this.state.confirmNewPasswordErrorMessage !== "" ? "field-has-error" : "field-has-no-error"}>
                         </input>
 
-                        <button className="reset-password-btn">ALTERAR SENHA</button>
+                        <DinamicButton isLoading={this.state.loading}
+                                       isDisabled={this.state.loading}
+                                       text={this.state.loading ? "Alterando senha" : "Alterar senha"}/>
                     </form>   
                 </div>
             </div>

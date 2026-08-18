@@ -1,60 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+#validate-code-main-container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgb(8, 8, 8), rgb(14, 14, 14));
+}
+
 #validate-code-container {
-    margin: 40px auto;
-    width: 40%;
-    height: 300px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+    width: 30%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    border-top: 10px solid #3a4eff;
-    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.089);
-    padding-bottom: 30px;
-    justify-content: center;
+    padding-bottom: 50px;
+    padding-top: 30px;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.171);
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.226);
+    gap: 10px;
 }
 
 #validate-code-container h2 {
-    font-family: "Roboto";
+    font-family: "JetBrains Mono", monospace;
+    color: white;
     font-weight: 300;
-    margin: 10px auto 20px auto;
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-#validate-code-container span {
+#resend-code-span {
+    color: white;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+}
+
+#resend-code-span.disabled {
+    color: rgba(255, 255, 255, 0.692);
+}
+
+#resend-code-span.unabled {
+    color: rgba(255, 255, 255, 0.973);
+    cursor: pointer;
+}
+
+#validate-code-ctn {
+    width: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.validate-code-error-message {
     margin: 0;
-    width: 95%;
+    margin-bottom: 5px;
+    width: 100%;
     font-size: 14px;
     color: rgb(255, 62, 62);
     height: 10px;
     transition: all 0.2s ease;
-    margin-left: 5%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#validate-code-input {
-    margin: 10px auto 0px auto;
-    display: flex;
-    position: relative;
-    width: 90%;
-    height: 50px;
-    align-items: center;
-}
-
-#validate-code-input input:focus {
+#validate-code-input:focus {
+    background-color: rgba(34, 34, 34, 0.911);
     outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.555);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.192);
+    border-bottom: 1px solid #fc7c40;
 }
 
-#validate-code-input input {
+#validate-code-input {
     width: 100%;
-    height: 90%;
+    background-color: rgba(26, 26, 26, 0.685);
+    height: 40px;
     padding: 0;
-    border: 1px solid rgba(0, 0, 0, 0.24);
+    border: 1px solid rgba(26, 26, 26, 0.685);
+    border-bottom: 1px solid #FF6823;
     padding-left: 10px;
-    font-family: "Roboto";
-    font-size: 20px;
-    transition: all 0.2s ease;
-    font-weight: 300;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    color: white;
 }
 
 #validate-code-input button:hover {
@@ -143,17 +179,20 @@
         font-size: 0px;
     }
 
-    #mobile-icon {
-        position: absolute;
-        width: 300px !important;
-        bottom: 0;
+    #validate-code-ctn {
+        width: 70%;
+    }
+}
+
+@media (max-width: 400px) {
+    #validate-code-ctn {
+        width: 80%;
     }
 
-    #resend-code-btn {
-        width: 40% ;
-    }
-
-    #validate-code-input input {
-        font-size: 19px;
+    #validate-code-container {
+        width: 90%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
     }
 }

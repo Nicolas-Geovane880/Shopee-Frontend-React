@@ -117,12 +117,6 @@ class Home extends React.Component {
                             window.location.href = "/unauthenticated-home"
                             }} text="&nbsp; SAIR &nbsp;"/>
                     </div>
-
-                    {/* <button id="sign-out-btn" onClick={() => {
-                        localStorage.removeItem ("accessToken");
-                        localStorage.removeItem ("refreshToken");
-                        window.location.href = "/unauthenticated-home"
-                        }}>SAIR</button> */}
                 </header>
 
                 <section id="first-section">
