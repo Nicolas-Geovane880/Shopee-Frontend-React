@@ -35,7 +35,7 @@ Páginas principais:
 
 ### ➜ Como a interface foi feita?
 
-O projeto utiliza JSX para a construção da interface, CSS para estilização e JavaScript para a comunicação com as APIs por meio da Fetch API.
+O projeto utiliza JSX (com o CRA - Create React App) para a construção da interface, CSS para estilização e JavaScript para a comunicação com as APIs por meio da Fetch API.
 
 #### Por que o CRA?
 
