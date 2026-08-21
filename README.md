@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# ➜ API em Spring Boot/Java — Shopee Supplier Calculator
+Shopee Supplier Calculator: https://shopee-supplier-calculator.netlify.app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O Shopee Supplier Calculator foi desenvolvido para auxiliar o gerenciamento financeiro de um grupo de comerciantes virtuais que possuem lojas centralizadas na plataforma da Shopee.
 
-## Available Scripts
+Ao comercializar produtos pela internet, é importante possuir uma forma eficiente de **registrar** os pedidos em **tabelas** ou **planilhas**. Entretanto, os comerciantes enfrentavam dificuldades nesse processo: o registro manual dos pedidos é repetitivo, trabalhoso e suscetível a erros, além da necessidade de calcular manualmente métricas como lucro e taxas de fornecedores.
 
-In the project directory, you can run:
+Diante desse problema, surgiu a necessidade de **automatizar** e **simplificar** o gerenciamento dos pedidos, reduzindo o trabalho manual e a possibilidade de erros no preenchimento dos dados.
 
-### `npm start`
+### ➜ Soluções propostas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Com base no problema identificado, foram propostas duas soluções:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ***Solução 1***: facilitar o registro manual dos pedidos por meio de uma tabela simplificada, realizando automaticamente o cálculo de algumas métricas.
 
-### `npm test`
+- ***Solução 2***: criar uma tabela totalmente automatizada, na qual o usuário precisa apenas fornecer um arquivo contendo as informações dos pedidos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Repositório solução 1: https://github.com/Nicolas-Geovane880/Shopee-Typescript-API-Backend
+- Reposítorio solução 2: https://github.com/Nicolas-Geovane880/Shopee-SpringBoot-API-Backend
 
-### `npm run build`
+### ➜ O que tem nesse repositório?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este repositório contém a aplicação frontend responsável por fornecer a interface de interação com as duas APIs do projeto.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A interface possui páginas para todas as funcionalidades das 2 APIs, englobando um design simples, minimalista porém agradável ao usuário.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Páginas principais:
 
-### `npm run eject`
+- Login e Signup
+- Home principal
+- Lista manual (solução 1)
+- Área de exportação de arquivos e geração de tabelas (solução 2)
+- Validação de código de login
+- Resetar senha
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ➜ Como a interface foi feita?
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+O projeto utiliza JSX para a construção da interface, CSS para estilização e JavaScript para a comunicação com as APIs por meio da Fetch API.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Por que o CRA?
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+O CRA (Create React App) é uma ferramenta utilizada para criar e configurar aplicações React. Atualmente, é uma tecnologia legada/depreciada e deixou de receber atualizações em fevereiro de 2025.
 
-## Learn More
+A escolha do CRA ocorreu principalmente devido à sua utilização nas disciplinas de desenvolvimento web da faculdade, nas quais adquiri experiência com essa estrutura.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Apesar de atualmente utilizar CRA, existe a intenção de migrar o frontend para uma solução mais atual à medida que novos conceitos e ferramentas do ecossistema React forem estudados.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### ➜ Imagens chaves da aplicação
 
-### Code Splitting
+<figure>
+    <figcatpion>Imagem 1: Signup (cadastro)</figcaption>
+    <img src="docs/signup.png" width="800px">
+</figure>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<figure>
+    <figcatpion>Imagem 2: Login</figcaption>
+    <img src="docs/login.png" width="800px">
+</figure>
 
-### Analyzing the Bundle Size
+<figure>
+    <figcatpion>Imagem 3: Home principal (repare que a primeira opção, referente a solução 1, está bloqueada. Isso acontece pois estou usando o recurso de "Usar recursos sem autenticação")</figcaption>
+    <img src="docs/home.png" width="800px">
+</figure>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<figure>
+    <figcatpion>Imagem 4: Área de exportação de arquivos .xlsx</figcaption>
+    <img src="docs/export-file.png" width="800px">
+</figure>
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### ➜ Libs utilizadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- React Router Dom| roteamento de páginas
+- AOS | criação de animações visuais
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
