@@ -340,7 +340,7 @@ class MetricsTable extends React.Component {
                 </div>
 
                 {createPortal(
-                <>
+                <div id="mobile-ctn">
                     <div
                         id="mobile-overflow"
                         className={
@@ -460,7 +460,7 @@ class MetricsTable extends React.Component {
                         </button>
 
                     </div>
-                </>,
+                </div>,
                 document.body
             )}
             </>

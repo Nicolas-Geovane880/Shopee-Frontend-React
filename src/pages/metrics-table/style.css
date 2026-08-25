@@ -11,6 +11,10 @@
     background-color: transparent;
 }
 
+body {
+    background-color: rgb(14, 14, 14);
+}
+
 #status-form {
     width: 20%;
     color: white;
@@ -53,6 +57,44 @@
 }
 
 #mobile-sidebar-ctn {
+    width: 0;
+    height: 0;
+}
+
+#status-form-mobile {
+    width: 0;
+    height: 0;
+}
+
+#status-form-mobile label {
+    display: flex;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0;
+}
+
+#status-form-mobile label input {
+    width: 0;
+    height: 0;
+}
+
+#status-form-mobile label text {
+    width: 0;
+    height: 0;
+}
+
+#mobile-overflow {
+    width: 0;
+    height: 0;
+}
+
+#mobile-sidebar {
+    width: 0;
+    height: 0;
+    border: none;
+}
+
+#mobile-ctn {
     width: 0;
     height: 0;
 }
