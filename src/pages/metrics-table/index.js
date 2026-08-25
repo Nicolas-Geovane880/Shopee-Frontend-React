@@ -243,7 +243,99 @@ class MetricsTable extends React.Component {
                         <label id="remove-files"
                             onClick={() => this.setState ({files: []})}>
                             Remover Arquivos
-                        </label>  
+                        </label>
+
+                        <div id="status-form">
+
+                            <label htmlFor="to-send">
+                                <input
+                                    id="to-send"
+                                    type="checkbox"
+                                    value="TO_SEND"
+                                    checked={this.state.status.includes("TO_SEND")}
+                                    onChange={this.handleStatusCheckbox}
+                                />
+                                Para enviar
+                            </label>
+
+                            <label htmlFor="sent">
+                                <input
+                                    id="sent"
+                                    type="checkbox"
+                                    value="SENT"
+                                    checked={this.state.status.includes("SENT")}
+                                    onChange={this.handleStatusCheckbox}
+                                />
+                                Enviado
+                            </label>
+
+                            <label htmlFor="delivered">
+                                <input
+                                    id="delivered"
+                                    type="checkbox"
+                                    value="DELIVERED"
+                                    checked={this.state.status.includes("DELIVERED")}
+                                    onChange={this.handleStatusCheckbox}
+                                />
+                                Entregue
+                            </label>
+
+                            <label htmlFor="concluded">
+                                <input
+                                    id="concluded"
+                                    type="checkbox"
+                                    value="CONCLUDED"
+                                    checked={this.state.status.includes("CONCLUDED")}
+                                    onChange={this.handleStatusCheckbox}
+                                />
+                                Concluído
+                            </label>
+
+                            <label htmlFor="cancelled">
+                                <input
+                                    id="cancelled"
+                                    type="checkbox"
+                                    value="CANCELLED"
+                                    checked={this.state.status.includes("CANCELLED")}
+                                    onChange={this.handleStatusCheckbox}
+                                />
+                                Cancelado
+                            </label>
+
+                            <label htmlFor="not-paid">
+                                <input
+                                    id="not-paid"
+                                    type="checkbox"
+                                    value="NOT_PAID"
+                                    checked={this.state.status.includes("NOT_PAID")}
+                                    onChange={this.handleStatusCheckbox}
+                                />
+                                Não pago
+                            </label>
+
+                            <label htmlFor="all-opt">
+                                <input
+                                    id="all-opt"
+                                    type="checkbox"
+                                    value="ALL_OPT"
+                                    checked={this.state.status.includes("ALL_OPT")}
+                                    onChange={this.handleAllStatusCheckbox}
+                                />
+                                Todos
+                            </label>
+
+                            <label htmlFor="none-opt">
+                                <input
+                                    id="none-opt"
+                                    type="checkbox"
+                                    value="NONE_OPT"
+                                    checked={this.state.status.includes("NONE_OPT")}
+                                    onChange={this.handleNoneStatusCheckbox}
+                                />
+                                Nenhum
+                            </label>
+
+                        </div>  
                     </div>
                 </div>
 
@@ -268,7 +360,7 @@ class MetricsTable extends React.Component {
                         }
                     >
 
-                        <div id="status-form">
+                        <div id="status-form-mobile">
 
                             <label htmlFor="to-send">
                                 <input

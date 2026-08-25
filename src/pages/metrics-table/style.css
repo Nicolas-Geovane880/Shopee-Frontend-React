@@ -52,6 +52,11 @@
     pointer-events: none;
 }
 
+#mobile-sidebar-ctn {
+    width: 0;
+    height: 0;
+}
+
 @media (max-width: 900px) and (min-width: 400px) {
     #mobile-sidebar {
         width: fit-content !important;
@@ -80,7 +85,7 @@
         height: 28%;
         position: absolute;
         background-color: rgb(14, 14, 14);
-        top: 138%;
+        top: 150%;
         transition: left 0.3s ease;
         z-index: 5000;
     }
@@ -94,11 +99,40 @@
     }
 
     #status-form {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #status-form-mobile {
         width: 100%;
         height: 100%;
         top: 0 !important;
         left: 0 !important;
         z-index: 1002;
+
+        color: white;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 6px;  
+        border: 1px solid rgba(255, 255, 255, 0.171);
+        font-family: "JetBrains Mono", monospace;
+    }
+
+    #status-form-mobile label [type="checkbox"] {
+        accent-color: #FF6823;
+        color: white;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    } 
+    
+    #status-form-mobile label {
+        display: flex;
+        align-items: center;
     }
 
     #mobile-overflow {
@@ -123,7 +157,7 @@
 }
 
 @media (max-width: 400px) {
-#mobile-sidebar {
+    #mobile-sidebar {
         width: fit-content !important;
         opacity: 1 !important;
         height: fit-content !important;
@@ -163,12 +197,21 @@
         left: 3%;
     }
 
-    #status-form {
+    #status-form-mobile {
         width: 100%;
         height: 100%;
         top: 0 !important;
         left: 0 !important;
         z-index: 1002;
+
+        color: white;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 6px;  
+        border: 1px solid rgba(255, 255, 255, 0.171);
+        font-family: "JetBrains Mono", monospace;
     }
 
     #mobile-overflow {
@@ -189,5 +232,25 @@
     #mobile-overflow.show {
         opacity: 1;
         pointer-events: auto;
+    }
+
+    #status-form {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #status-form-mobile label [type="checkbox"] {
+        accent-color: #FF6823;
+        color: white;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    } 
+    
+    #status-form-mobile label {
+        display: flex;
+        align-items: center;
     }
 }
