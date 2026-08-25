@@ -10,3 +10,184 @@
     margin: 0 auto;
     background-color: transparent;
 }
+
+#status-form {
+    width: 20%;
+    color: white;
+    height: fit-content;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: -3%;
+    padding: 15px;
+    top: 20%;  
+    gap: 6px;  
+    border: 1px solid rgba(255, 255, 255, 0.171);
+    font-family: "JetBrains Mono", monospace;
+}
+
+#status-form label {
+    display: flex;
+    align-items: center;
+}
+
+#status-form label [type="checkbox"] {
+    accent-color: #FF6823;
+    color: white;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+#mobile-sidebar-icon-filter {
+    width: fit-content;
+    height: fit-content;
+    transition: all 0.3s ease-in-out;
+}
+
+#mobile-sidebar {
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 900px) and (min-width: 400px) {
+    #mobile-sidebar {
+        width: fit-content !important;
+        opacity: 1 !important;
+        height: fit-content !important;
+        pointer-events: all !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: -55% !important;
+        background-image: none !important;
+        background-color: transparent !important;
+        border: 1px solid rgba(255, 255, 255, 0.171);
+        font-size: 15px !important;
+        z-index: 1001;
+        color: white;
+        padding: 5px 10px;
+        font-family: "JetBrains Mono", monospace;
+    }
+
+    #mobile-sidebar:hover {
+        box-shadow: none !important;
+    }
+
+    #mobile-sidebar-ctn {
+        width: 40%;
+        height: 28%;
+        position: absolute;
+        background-color: rgb(14, 14, 14);
+        top: 138%;
+        transition: left 0.3s ease;
+        z-index: 5000;
+    }
+
+    #mobile-sidebar-ctn.hidden {
+        left: -38%;
+    }
+
+    #mobile-sidebar-ctn.show {
+        left: 3%;
+    }
+
+    #status-form {
+        width: 100%;
+        height: 100%;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1002;
+    }
+
+    #mobile-overflow {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.452);
+        z-index: 3000;
+        transition: all 0.3s ease;
+    }
+
+    #mobile-overflow.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #mobile-overflow.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 400px) {
+#mobile-sidebar {
+        width: fit-content !important;
+        opacity: 1 !important;
+        height: fit-content !important;
+        pointer-events: all !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: -53% !important;
+        background-image: none !important;
+        background-color: transparent !important;
+        border: 1px solid rgba(255, 255, 255, 0.171);
+        font-size: 15px !important;
+        z-index: 1001;
+        color: white;
+        padding: 5px 10px;
+        font-family: "JetBrains Mono", monospace;
+    }
+
+    #mobile-sidebar:hover {
+        box-shadow: none !important;
+    }
+
+    #mobile-sidebar-ctn {
+        width: 45%;
+        height: 40%;
+        position: absolute;
+        background-color: rgb(14, 14, 14);
+        top: 150%;
+        transition: left 0.3s ease;
+        z-index: 5000;
+    }
+
+    #mobile-sidebar-ctn.hidden {
+        left: -43%;
+    }
+
+    #mobile-sidebar-ctn.show {
+        left: 3%;
+    }
+
+    #status-form {
+        width: 100%;
+        height: 100%;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1002;
+    }
+
+    #mobile-overflow {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.452);
+        z-index: 3000;
+        transition: all 0.3s ease;
+    }
+
+    #mobile-overflow.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #mobile-overflow.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
